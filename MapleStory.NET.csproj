@@ -10,7 +10,7 @@
     <Authors>Jihwan Moon</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>MapleStory.NET;MapleStory;Maple;Nexon;API;Wrapper</PackageTags>
+    <PackageTags>MapleStory.NET;MapleStory;Maple;Nexon;API;Wrapper</PackageTags>
     <RepositoryType>git</RepositoryType>
     <Description>MapleStory.NET is a .NET API wrapper for Nexon's MapleStory Open API, offering functionalities such as fetching character details, cube usage results, and various rankings. This library simplifies the process of interacting with the MapleStory API.</Description>
     <RepositoryUrl>https://github.com/mnjihw/MapleStory.NET.git</RepositoryUrl>
