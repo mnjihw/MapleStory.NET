@@ -44,6 +44,7 @@ if (!characterResult.Success)
     Console.WriteLine(characterResult.Error);
     return;
 }
+
 var ocid = characterResult.Data.Ocid;
 var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic information
 
