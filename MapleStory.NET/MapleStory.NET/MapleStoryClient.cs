@@ -4,14 +4,15 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace MapleStory.NET;
-public class MapleStoryClient : IDisposable
+public class MapleStoryClient : IMapleStoryClient, IDisposable
 {
     public ICharacterApi CharacterApi { get; }
     public IGuildApi GuildApi { get; }
     public IHistoryApi HistoryApi { get; }
     public IRankingApi RankingApi { get; }
     public IUnionApi UnionApi { get; }
-    private HttpClient? HttpClient { get; set; }
+    protected HttpClient? HttpClient { get; private set; }
+    protected ILogger Logger { get; private set; }
     private bool disposed = false;
 
     public MapleStoryClient(string apiKey, ILoggerFactory? loggerFactory = null) : this(apiKey, TimeSpan.FromSeconds(5), loggerFactory) { }//로거팩토리추가중
@@ -25,19 +26,20 @@ public class MapleStoryClient : IDisposable
         };
         HttpClient.DefaultRequestHeaders.Add("x-nxopen-api-key", apiKey);
 
-        var loggerName = "MapleStory.NET";
-        var logger = loggerFactory?.CreateLogger(loggerName) ?? NullLoggerFactory.Instance.CreateLogger(loggerName);
-
-        CharacterApi = new CharacterApi(logger, HttpClient);
-        GuildApi = new GuildApi(logger, HttpClient);
-        HistoryApi = new HistoryApi(logger, HttpClient);
-        RankingApi = new RankingApi(logger, HttpClient);
-        UnionApi = new UnionApi(logger, HttpClient);
+        var name = "MapleStory.NET";
+        Logger = loggerFactory?.CreateLogger(name) ?? NullLoggerFactory.Instance.CreateLogger(name);
+        Logger.LogTrace("{Name}: v{Version}", name, typeof(MapleStoryClient).Assembly.GetName().Version);
+        CharacterApi = new CharacterApi(Logger, HttpClient);
+        GuildApi = new GuildApi(Logger, HttpClient);
+        HistoryApi = new HistoryApi(Logger, HttpClient);
+        RankingApi = new RankingApi(Logger, HttpClient);
+        UnionApi = new UnionApi(Logger, HttpClient);
     }
     ~MapleStoryClient() => Dispose(false);
 
     public void Dispose()
     {
+        Logger.LogDebug("Disposing client");
         Dispose(true);
         GC.SuppressFinalize(this);
     }
