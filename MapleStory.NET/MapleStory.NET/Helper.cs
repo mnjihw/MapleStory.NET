@@ -8,16 +8,16 @@ public static class Helper
 {
     private static Dictionary<ApiErrorCode, string> ApiErrors { get; } = new()
     {
-        [ApiErrorCode.OPENAPI00001] = "서버 내부 오류",
-        [ApiErrorCode.OPENAPI00002] = "권한 없음",
-        [ApiErrorCode.OPENAPI00003] = "유효하지 않은 식별자",
-        [ApiErrorCode.OPENAPI00004] = "파라미터가 누락됐거나 유효하지 않음",
-        [ApiErrorCode.OPENAPI00005] = "API Key 유효하지 않음",
-        [ApiErrorCode.OPENAPI01005] = "API Key 유효하지 않음",
-        [ApiErrorCode.OPENAPI00006] = "게임 또는 API Path가 유효하지 않음",
-        [ApiErrorCode.OPENAPI00007] = "API 호출량 초과",
-        [ApiErrorCode.OPENAPI01007] = "API 호출량 초과",
-        [ApiErrorCode.Unknown] = "알 수 없는 에러",
+        [ApiErrorCode.OPENAPI00001] = "Internal server error",
+        [ApiErrorCode.OPENAPI00002] = "Not authorized",
+        [ApiErrorCode.OPENAPI00003] = "Invalid identifier",
+        [ApiErrorCode.OPENAPI00004] = "Parameter is missing or invalid",
+        [ApiErrorCode.OPENAPI00005] = "Invalid API key",
+        [ApiErrorCode.OPENAPI01005] = "Invalid API key",
+        [ApiErrorCode.OPENAPI00006] = "Invalid game or API path",
+        [ApiErrorCode.OPENAPI00007] = "API rate limit exceeded",
+        [ApiErrorCode.OPENAPI01007] = "API rate limit exceeded",
+        [ApiErrorCode.Unknown] = "Unknown error",
     };
     public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
     {
