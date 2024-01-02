@@ -16,6 +16,12 @@ dotnet add package MapleStory.NET
 
 ## 사용 방법
 
+### API Key 발급받기
+
+[Nexon Open API 센터](https://openapi.nexon.com/my-application/)에서 애플리케이션을 등록하면 API Key가 발급됩니다.
+
+### 예제 코드
+
 ```csharp
 using System;
 using MapleStory.NET;

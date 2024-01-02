@@ -15,6 +15,12 @@ dotnet add package MapleStory.NET
 
 ## How to use
 
+### API Key
+
+API Key will be generated once you register your application on [Nexon Open API Center](https://openapi.nexon.com/my-application/).
+
+### Example code
+
 ```csharp
 using System;
 using MapleStory.NET;
