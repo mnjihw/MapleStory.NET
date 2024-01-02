@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Text.Json;
 using MapleStory.NET.Objects;
 using Microsoft.Extensions.Logging;
@@ -26,6 +25,7 @@ public abstract class BaseApi
         try
         {
             var httpResponseMessage = await HttpClient.GetAsync(url, cancellationToken).ConfigureAwait(false);
+            Logger.LogInformation("GET {Url} -> {StatusCode}", url, httpResponseMessage.StatusCode);
             var body = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
             if (httpResponseMessage.IsSuccessStatusCode)
@@ -34,27 +34,40 @@ public abstract class BaseApi
             {
                 var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(body, Helper.JsonSerializerOptions);
                 if (!Enum.TryParse(typeof(ApiErrorCode), errorResponse?.Error?.Name, out var apiErrorCode))
+                {
+                    Logger.LogWarning("Failed to parse ApiErrorCode: {Name}", errorResponse?.Error?.Name);
                     apiErrorCode = ApiErrorCode.Unknown;
-                var error = new ServerError((int)httpResponseMessage.StatusCode, (ApiErrorCode)apiErrorCode, errorResponse?.Error?.Message);
+                }
+                int statusCode = (int)httpResponseMessage.StatusCode;
+                var error = new ServerError(statusCode, (ApiErrorCode)apiErrorCode, errorResponse?.Error?.Message);
+                Logger.LogError("API Request for {Url} failed with StatusCode: {StatusCode}, ApiErrorCode: {ApiErrorCode}, Message: {Message}", url, statusCode, apiErrorCode, errorResponse?.Error?.Message);
                 return new CallResult<T>(error);
             }
         }
         catch (HttpRequestException e)
         {
             var exceptionInfo = e.ToLogString();
+            Logger.LogError("HTTP request for {Url} failed: {ExceptionInfo}", url, exceptionInfo);
             return new CallResult<T>(new WebError(exceptionInfo));
         }
         catch (JsonException e)
         {
             var exceptionInfo = e.ToLogString();
+            Logger.LogWarning("JSON deserialization for {Url} failed: {ExceptionInfo}", url, exceptionInfo);
             return new CallResult<T>(new DeserializeError(exceptionInfo));
         }
         catch (OperationCanceledException e)
         {
             if (cancellationToken != default && e.CancellationToken == cancellationToken)
+            {
+                Logger.LogInformation("Operation for {Url} was cancelled by the user.", url);
                 return new CallResult<T>(new CancellationRequestedError());
+            }
             else
+            {
+                Logger.LogWarning("The request for {Url} timed out.", url);
                 return new CallResult<T>(new WebError("Request timed out"));
+            }
         }
     }
 }
