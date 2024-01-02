@@ -6,6 +6,13 @@ namespace MapleStory.NET;
 
 public static class Helper
 {
+    public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+        WriteIndented = true,
+        AllowTrailingCommas = true,
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
+    };
     private static Dictionary<ApiErrorCode, string> ApiErrors { get; } = new()
     {
         [ApiErrorCode.OPENAPI00001] = "Internal server error",
@@ -18,13 +25,6 @@ public static class Helper
         [ApiErrorCode.OPENAPI00007] = "API rate limit exceeded",
         [ApiErrorCode.OPENAPI01007] = "API rate limit exceeded",
         [ApiErrorCode.Unknown] = "Unknown error",
-    };
-    public static JsonSerializerOptions JsonSerializerOptions { get; } = new()
-    {
-        PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
-        WriteIndented = true,
-        AllowTrailingCommas = true,
-        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
     };
     private const int KoreaStandardTimeOffset = 9;
 
