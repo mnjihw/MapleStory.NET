@@ -33,7 +33,9 @@ public abstract class BaseApi
             else
             {
                 var errorResponse = JsonSerializer.Deserialize<ErrorResponse>(body, Helper.JsonSerializerOptions);
-                var error = new ServerError((int)httpResponseMessage.StatusCode, errorResponse?.Error?.Name, errorResponse?.Error?.Message);
+                if (!Enum.TryParse(typeof(ApiErrorCode), errorResponse?.Error?.Name, out var apiErrorCode))
+                    apiErrorCode = ApiErrorCode.Unknown;
+                var error = new ServerError((int)httpResponseMessage.StatusCode, (ApiErrorCode)apiErrorCode, errorResponse?.Error?.Message);
                 return new CallResult<T>(error);
             }
         }
