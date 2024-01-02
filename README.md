@@ -12,3 +12,41 @@ MapleStory.NET is a wrapper to simplify the use of Nexon's MapleStory Open API, 
 ```xml
 dotnet add package MapleStory.NET
 ```
+
+## How to use
+
+```csharp
+using System;
+using MapleStory.NET;
+
+var apiKey = "Your api key here";
+
+using var client = new MapleStoryClient(apiKey);
+var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //fetch overall ranking
+
+if (!overallRankingResult.Success)
+{
+    Console.WriteLine(overallRankingResult.Error);
+    return;
+}
+
+var characterName = overallRankingResult.Data.Ranking[0].CharacterName;
+var characterResult = await client.CharacterApi.GetAsync(characterName); //fetch character identifier(ocid)
+
+if (!characterResult.Success)
+{
+    Console.WriteLine(characterResult.Error);
+    return;
+}
+var ocid = characterResult.Data.Ocid;
+var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic information
+
+if (!characterBasicResult.Success)
+{
+    Console.WriteLine(characterBasicResult.Error);
+    return;
+}
+
+var characterBasic = characterBasicResult.Data;
+Console.WriteLine(characterBasic.ToJsonString());
+```

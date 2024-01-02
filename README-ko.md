@@ -13,3 +13,41 @@ MapleStory.NET은 넥슨의 MapleStory Open API 사용을 간소화하기 위한
 ```xml
 dotnet add package MapleStory.NET
 ```
+
+## 사용 방법
+
+```csharp
+using System;
+using MapleStory.NET;
+
+var apiKey = "Your api key here";
+
+using var client = new MapleStoryClient(apiKey);
+var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //종합 랭킹 정보 조회
+
+if (!overallRankingResult.Success)
+{
+    Console.WriteLine(overallRankingResult.Error);
+    return;
+}
+
+var characterName = overallRankingResult.Data.Ranking[0].CharacterName;
+var characterResult = await client.CharacterApi.GetAsync(characterName); //캐릭터 식별자(ocid) 조회
+
+if (!characterResult.Success)
+{
+    Console.WriteLine(characterResult.Error);
+    return;
+}
+var ocid = characterResult.Data.Ocid;
+var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //기본 정보 조회
+
+if (!characterBasicResult.Success)
+{
+    Console.WriteLine(characterBasicResult.Error);
+    return;
+}
+
+var characterBasic = characterBasicResult.Data;
+Console.WriteLine(characterBasic.ToJsonString());
+```
