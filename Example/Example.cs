@@ -1,6 +1,6 @@
 ﻿using MapleStory.NET;
 
-var apiKey = "Your api key here";
+var apiKey = "Your_api_key_here";
 
 using var client = new MapleStoryClient(apiKey);
 var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //fetch overall ranking
