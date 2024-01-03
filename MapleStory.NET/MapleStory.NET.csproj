@@ -10,7 +10,7 @@
     <Authors>Jihwan Moon</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>MapleStory.NET;MapleStory;Maple;Nexon;API;Wrapper</PackageTags>
+    <PackageTags>MapleStory.NET;MapleStory;Maple;Nexon;API;Wrapper;KMS;GMS</PackageTags>
     <RepositoryType>git</RepositoryType>
     <Description>A wrapper for Nexon's MapleStory Open API.</Description>
     <RepositoryUrl>https://github.com/mnjihw/MapleStory.NET.git</RepositoryUrl>
