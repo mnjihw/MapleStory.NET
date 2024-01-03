@@ -13,7 +13,7 @@ public class UnionApi : BaseApi, IUnionApi
     private const string UnionRaiderEndpoint = "union-raider";
     private static DateOnly ApiLaunchDate => new(2023, 12, 21);
     private static TimeSpan ApiUpdateTime => new(1, 0, 0);
-    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1);
+    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal UnionApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
     public Task<CallResult<Union>> GetAsync(string ocid, CancellationToken ct = default) => GetAsync(ocid, LatestAvailableDate, ct);

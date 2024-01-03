@@ -22,7 +22,7 @@ public class RankingApi : BaseApi, IRankingApi
 
     private static DateOnly ApiLaunchDate => new(2023, 12, 22);
     private static TimeSpan ApiUpdateTime => new(8, 30, 0);
-    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 0);
+    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 0, DateTimeOffset.UtcNow);
 
     internal RankingApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
 

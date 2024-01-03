@@ -48,7 +48,7 @@ public class CharacterApi : BaseApi, ICharacterApi
     private const string DojangEndpoint = "dojang";
     private static DateOnly ApiLaunchDate => new(2023, 12, 21);
     private static TimeSpan ApiUpdateTime => new(1, 0, 0);
-    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1);
+    private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal CharacterApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
     public Task<CallResult<Character>> GetAsync(string characterName, CancellationToken ct = default)

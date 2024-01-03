@@ -33,10 +33,10 @@ public static class Helper
         if (date < apiLaunchDate)
             throw new ArgumentException($"Date must be after {apiLaunchDate:yyyy-MM-dd}");
     }
-    public static DateOnly GetLatestApiAvailableDate(TimeSpan apiUpdateTime, int dataAgeInDays)
+    public static DateOnly GetLatestApiAvailableDate(TimeSpan apiUpdateTime, int dataAgeInDays, DateTimeOffset utcCurrentTime)
     {
-        var kstNow = DateTimeOffset.UtcNow.ToOffset(TimeSpan.FromHours(KoreaStandardTimeOffset));
-        var daysToSubtract = kstNow.TimeOfDay > apiUpdateTime ? dataAgeInDays : dataAgeInDays + 1;
+        var kstNow = utcCurrentTime.ToOffset(TimeSpan.FromHours(KoreaStandardTimeOffset));
+        var daysToSubtract = kstNow.TimeOfDay >= apiUpdateTime ? dataAgeInDays : dataAgeInDays + 1;
 
         return DateOnly.FromDateTime(kstNow.AddDays(-daysToSubtract).Date);
     }

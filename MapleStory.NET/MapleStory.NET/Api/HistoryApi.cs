@@ -59,9 +59,9 @@ public class HistoryApi : BaseApi, IHistoryApi
     private static DateOnly GetLatestAvailableDate(string endpoint)
     {
         if (endpoint == StarforceEndpoint)
-            return Helper.GetLatestApiAvailableDate(StarforceHistoryApiUpdateTime, 0);
+            return Helper.GetLatestApiAvailableDate(StarforceHistoryApiUpdateTime, 0, DateTimeOffset.UtcNow);
         else if (endpoint == CubeEndpoint)
-            return Helper.GetLatestApiAvailableDate(CubeHistoryApiUpdateTime, 1);
+            return Helper.GetLatestApiAvailableDate(CubeHistoryApiUpdateTime, 1, DateTimeOffset.UtcNow);
         else
             throw new ArgumentException("Invalid endpoint");
     }
