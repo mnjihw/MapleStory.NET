@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace MapleStory.NET.Objects.CharacterModels.CharacterSkill;
 public class CharacterSkill
 {

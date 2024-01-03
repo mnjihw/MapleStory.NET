@@ -1,9 +1,3 @@
-using MapleStory.NET.Interfaces.Api;
-using MapleStory.NET.Objects;
-using MapleStory.NET.Objects.GuildModels.Guild;
-using MapleStory.NET.Objects.GuildModels.GuildBasic;
-using Microsoft.Extensions.Logging;
-
 namespace MapleStory.NET.Api;
 
 public class GuildApi : BaseApi, IGuildApi
@@ -16,7 +10,7 @@ public class GuildApi : BaseApi, IGuildApi
     private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal GuildApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
-    public Task<CallResult<Guild>> GetAsync(string guildName, string worldName, CancellationToken ct = default)
+    public Task<CallResult<Guild>> GetAsync(string guildName, string worldName, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(guildName);
         ArgumentException.ThrowIfNullOrWhiteSpace(worldName);
@@ -26,11 +20,11 @@ public class GuildApi : BaseApi, IGuildApi
             ["guild_name"] = guildName,
             ["world_name"] = worldName,
         };
-        return GetAsync<Guild>($"{ResourcePath}/{IdEndpoint}", parameters, ct);
+        return GetAsync<Guild>($"{ResourcePath}/{IdEndpoint}", parameters, cancellationToken);
     }
 
-    public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, CancellationToken ct = default) => GetBasicAsync(oguildId, LatestAvailableDate, ct);
-    public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, DateOnly date, CancellationToken ct = default)
+    public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, CancellationToken cancellationToken = default) => GetBasicAsync(oguildId, LatestAvailableDate, cancellationToken);
+    public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, DateOnly date, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(oguildId);
         Helper.ThrowIfBeforeApiLaunch(date, ApiLaunchDate);
@@ -40,6 +34,6 @@ public class GuildApi : BaseApi, IGuildApi
             ["oguild_id"] = oguildId,
             ["date"] = date.ToString("yyyy-MM-dd"),
         };
-        return GetAsync<GuildBasic>($"{ResourcePath}/{BasicEndpoint}", parameters, ct);
+        return GetAsync<GuildBasic>($"{ResourcePath}/{BasicEndpoint}", parameters, cancellationToken);
     }
 }

@@ -1,6 +1,3 @@
-using System.Text;
-using System.Text.Json;
-
 namespace MapleStory.NET;
 
 public static class ExtensionMethods
@@ -9,7 +6,8 @@ public static class ExtensionMethods
     {
         var message = new StringBuilder();
         var indent = 0;
-        while (exception != null)
+
+        while (exception is not null)
         {
             for (var i = 0; i < indent; i++)
                 message.Append(' ');

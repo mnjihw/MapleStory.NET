@@ -1,13 +1,3 @@
-using MapleStory.NET.Interfaces.Api;
-using MapleStory.NET.Objects;
-using MapleStory.NET.Objects.RankingModels.AchievementRanking;
-using MapleStory.NET.Objects.RankingModels.DojangRanking;
-using MapleStory.NET.Objects.RankingModels.GuildRanking;
-using MapleStory.NET.Objects.RankingModels.OverallRanking;
-using MapleStory.NET.Objects.RankingModels.TheSeedRanking;
-using MapleStory.NET.Objects.RankingModels.UnionRanking;
-using Microsoft.Extensions.Logging;
-
 namespace MapleStory.NET.Api;
 
 public class RankingApi : BaseApi, IRankingApi
@@ -26,21 +16,21 @@ public class RankingApi : BaseApi, IRankingApi
 
     internal RankingApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
 
-    public Task<CallResult<OverallRanking>> GetOverallRankingAsync(string? worldName = null, byte worldType = 0, string? @class = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetOverallRankingAsync(LatestAvailableDate, worldName, worldType, @class, ocid, page, ct);
-    public Task<CallResult<OverallRanking>> GetOverallRankingAsync(DateOnly date, string? worldName = null, byte worldType = 0, string? @class = null, string? ocid = null, int page = 1, CancellationToken ct = default)
+    public Task<CallResult<OverallRanking>> GetOverallRankingAsync(string? worldName = null, byte worldType = 0, string? @class = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetOverallRankingAsync(LatestAvailableDate, worldName, worldType, @class, ocid, page, cancellationToken);
+    public Task<CallResult<OverallRanking>> GetOverallRankingAsync(DateOnly date, string? worldName = null, byte worldType = 0, string? @class = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default)
     {
         Dictionary<string, string> parameters = [];
         if (worldName is null)
             parameters["world_type"] = worldType.ToString();
         if (@class is not null)
             parameters["class"] = @class;
-        return GetAsync<OverallRanking>(OverallEndpoint, date, worldName, ocid, page, parameters, ct);
+        return GetAsync<OverallRanking>(OverallEndpoint, date, worldName, ocid, page, parameters, cancellationToken);
     }
 
-    public Task<CallResult<UnionRanking>> GetUnionRankingAsync(string? worldName = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetUnionRankingAsync(LatestAvailableDate, worldName, ocid, page, ct);
-    public Task<CallResult<UnionRanking>> GetUnionRankingAsync(DateOnly date, string? worldName = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetAsync<UnionRanking>(UnionEndpoint, date, worldName, ocid, page, [], ct);
-    public Task<CallResult<GuildRanking>> GetGuildRankingAsync(byte rankingType, string? worldName = null, string? guildName = null, int page = 1, CancellationToken ct = default) => GetGuildRankingAsync(LatestAvailableDate, rankingType, worldName, guildName, page, ct);
-    public Task<CallResult<GuildRanking>> GetGuildRankingAsync(DateOnly date, byte rankingType, string? worldName = null, string? guildName = null, int page = 1, CancellationToken ct = default)
+    public Task<CallResult<UnionRanking>> GetUnionRankingAsync(string? worldName = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetUnionRankingAsync(LatestAvailableDate, worldName, ocid, page, cancellationToken);
+    public Task<CallResult<UnionRanking>> GetUnionRankingAsync(DateOnly date, string? worldName = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetAsync<UnionRanking>(UnionEndpoint, date, worldName, ocid, page, [], cancellationToken);
+    public Task<CallResult<GuildRanking>> GetGuildRankingAsync(byte rankingType, string? worldName = null, string? guildName = null, int page = 1, CancellationToken cancellationToken = default) => GetGuildRankingAsync(LatestAvailableDate, rankingType, worldName, guildName, page, cancellationToken);
+    public Task<CallResult<GuildRanking>> GetGuildRankingAsync(DateOnly date, byte rankingType, string? worldName = null, string? guildName = null, int page = 1, CancellationToken cancellationToken = default)
     {
         var parameters = new Dictionary<string, string>
         {
@@ -48,11 +38,11 @@ public class RankingApi : BaseApi, IRankingApi
         };
         if (guildName is not null)
             parameters["guild_name"] = guildName;
-        return GetAsync<GuildRanking>(GuildEndpoint, date, worldName, null, page, parameters, ct);
+        return GetAsync<GuildRanking>(GuildEndpoint, date, worldName, null, page, parameters, cancellationToken);
     }
 
-    public Task<CallResult<DojangRanking>> GetDojangRankingAsync(byte difficulty, string? worldName = null, string? @class = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetDojangRankingAsync(LatestAvailableDate, difficulty, worldName, @class, ocid, page, ct);
-    public Task<CallResult<DojangRanking>> GetDojangRankingAsync(DateOnly date, byte difficulty, string? worldName = null, string? @class = null, string? ocid = null, int page = 1, CancellationToken ct = default)
+    public Task<CallResult<DojangRanking>> GetDojangRankingAsync(byte difficulty, string? worldName = null, string? @class = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetDojangRankingAsync(LatestAvailableDate, difficulty, worldName, @class, ocid, page, cancellationToken);
+    public Task<CallResult<DojangRanking>> GetDojangRankingAsync(DateOnly date, byte difficulty, string? worldName = null, string? @class = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default)
     {
         var parameters = new Dictionary<string, string>
         {
@@ -60,13 +50,13 @@ public class RankingApi : BaseApi, IRankingApi
         };
         if (@class is not null)
             parameters["class"] = @class;
-        return GetAsync<DojangRanking>(DojangEndpoint, date, worldName, ocid, page, parameters, ct);
+        return GetAsync<DojangRanking>(DojangEndpoint, date, worldName, ocid, page, parameters, cancellationToken);
     }
 
-    public Task<CallResult<TheSeedRanking>> GetTheSeedRankingAsync(string? worldName = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetTheSeedRankingAsync(LatestAvailableDate, worldName, ocid, page, ct);
-    public Task<CallResult<TheSeedRanking>> GetTheSeedRankingAsync(DateOnly date, string? worldName = null, string? ocid = null, int page = 1, CancellationToken ct = default) => GetAsync<TheSeedRanking>(TheSeedEndpoint, date, worldName, ocid, page, [], ct);
-    public Task<CallResult<AchievementRanking>> GetAchievementRankingAsync(string? ocid = null, int page = 1, CancellationToken ct = default) => GetAchievementRankingAsync(LatestAvailableDate, ocid, page, ct);
-    public Task<CallResult<AchievementRanking>> GetAchievementRankingAsync(DateOnly date, string? ocid = null, int page = 1, CancellationToken ct = default) => GetAsync<AchievementRanking>(AchievementEndpoint, date, null, ocid, page, [], ct);
+    public Task<CallResult<TheSeedRanking>> GetTheSeedRankingAsync(string? worldName = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetTheSeedRankingAsync(LatestAvailableDate, worldName, ocid, page, cancellationToken);
+    public Task<CallResult<TheSeedRanking>> GetTheSeedRankingAsync(DateOnly date, string? worldName = null, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetAsync<TheSeedRanking>(TheSeedEndpoint, date, worldName, ocid, page, [], cancellationToken);
+    public Task<CallResult<AchievementRanking>> GetAchievementRankingAsync(string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetAchievementRankingAsync(LatestAvailableDate, ocid, page, cancellationToken);
+    public Task<CallResult<AchievementRanking>> GetAchievementRankingAsync(DateOnly date, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetAsync<AchievementRanking>(AchievementEndpoint, date, null, ocid, page, [], cancellationToken);
     private Task<CallResult<T>> GetAsync<T>(string endpoint, DateOnly date, string? worldName, string? ocid, int page, Dictionary<string, string> parameters, CancellationToken cancellationToken) where T : class
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(endpoint);

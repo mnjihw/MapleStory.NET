@@ -1,5 +1,3 @@
-using System.Text.Json.Serialization;
-
 namespace MapleStory.NET.Objects.HistoryModels.CubeHistory;
 public class CubeHistory
 {

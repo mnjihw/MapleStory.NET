@@ -1,9 +1,3 @@
-using MapleStory.NET.Interfaces.Api;
-using MapleStory.NET.Objects;
-using MapleStory.NET.Objects.UnionModels.Union;
-using MapleStory.NET.Objects.UnionModels.UnionRaider;
-using Microsoft.Extensions.Logging;
-
 namespace MapleStory.NET.Api;
 
 public class UnionApi : BaseApi, IUnionApi
@@ -16,11 +10,11 @@ public class UnionApi : BaseApi, IUnionApi
     private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal UnionApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
-    public Task<CallResult<Union>> GetAsync(string ocid, CancellationToken ct = default) => GetAsync(ocid, LatestAvailableDate, ct);
-    public Task<CallResult<Union>> GetAsync(string ocid, DateOnly date, CancellationToken ct = default) => GetAsync<Union>(UnionEndpoint, ocid, date, ct);
-    public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, CancellationToken ct = default) => GetRaiderAsync(ocid, LatestAvailableDate, ct);
-    public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, DateOnly date, CancellationToken ct = default) => GetAsync<UnionRaider>(UnionRaiderEndpoint, ocid, date, ct);
-    private Task<CallResult<T>> GetAsync<T>(string endpoint, string ocid, DateOnly date, CancellationToken ct) where T : class
+    public Task<CallResult<Union>> GetAsync(string ocid, CancellationToken cancellationToken = default) => GetAsync(ocid, LatestAvailableDate, cancellationToken);
+    public Task<CallResult<Union>> GetAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<Union>(UnionEndpoint, ocid, date, cancellationToken);
+    public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, CancellationToken cancellationToken = default) => GetRaiderAsync(ocid, LatestAvailableDate, cancellationToken);
+    public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<UnionRaider>(UnionRaiderEndpoint, ocid, date, cancellationToken);
+    private Task<CallResult<T>> GetAsync<T>(string endpoint, string ocid, DateOnly date, CancellationToken cancellationToken) where T : class
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(endpoint);
         ArgumentException.ThrowIfNullOrWhiteSpace(ocid);
@@ -31,6 +25,6 @@ public class UnionApi : BaseApi, IUnionApi
             ["ocid"] = ocid,
             ["date"] = date.ToString("yyyy-MM-dd"),
         };
-        return GetAsync<T>($"{ResourcePath}/{endpoint}", parameters, ct);
+        return GetAsync<T>($"{ResourcePath}/{endpoint}", parameters, cancellationToken);
     }
 }

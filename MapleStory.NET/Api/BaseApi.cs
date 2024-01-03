@@ -1,7 +1,3 @@
-using System.Text.Json;
-using MapleStory.NET.Objects;
-using Microsoft.Extensions.Logging;
-
 namespace MapleStory.NET.Api;
 public abstract class BaseApi
 {
