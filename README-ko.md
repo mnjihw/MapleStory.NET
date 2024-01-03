@@ -23,7 +23,6 @@ dotnet add package MapleStory.NET
 ### 예제 코드
 
 ```csharp
-using System;
 using MapleStory.NET;
 
 var apiKey = "Your api key here";
@@ -37,8 +36,9 @@ if (!overallRankingResult.Success)
     return;
 }
 
-var characterName = overallRankingResult.Data.Ranking[0].CharacterName;
-var characterResult = await client.CharacterApi.GetAsync(characterName); //캐릭터 식별자(ocid) 조회
+var top10 = overallRankingResult.Data!.Ranking!.Take(10); //랭킹 10위까지 가져오기
+var firstPlace = top10.First(); //랭킹 1위 가져오기
+var characterResult = await client.CharacterApi.GetAsync(firstPlace.CharacterName!); //캐릭터 식별자(ocid) 조회
 
 if (!characterResult.Success)
 {
@@ -46,7 +46,7 @@ if (!characterResult.Success)
     return;
 }
 
-var ocid = characterResult.Data.Ocid;
+var ocid = characterResult.Data!.Ocid!;
 var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //기본 정보 조회
 
 if (!characterBasicResult.Success)

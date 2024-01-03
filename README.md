@@ -22,7 +22,6 @@ API Key will be generated once you register your application on [Nexon Open API 
 ### Example code
 
 ```csharp
-using System;
 using MapleStory.NET;
 
 var apiKey = "Your api key here";
@@ -36,8 +35,9 @@ if (!overallRankingResult.Success)
     return;
 }
 
-var characterName = overallRankingResult.Data.Ranking[0].CharacterName;
-var characterResult = await client.CharacterApi.GetAsync(characterName); //fetch character identifier(ocid)
+var top10 = overallRankingResult.Data!.Ranking!.Take(10); //get top 10 characters
+var firstPlace = top10.First(); //get first place
+var characterResult = await client.CharacterApi.GetAsync(firstPlace.CharacterName!); //fetch character identifier(ocid)
 
 if (!characterResult.Success)
 {
@@ -45,7 +45,7 @@ if (!characterResult.Success)
     return;
 }
 
-var ocid = characterResult.Data.Ocid;
+var ocid = characterResult.Data!.Ocid!;
 var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic information
 
 if (!characterBasicResult.Success)
