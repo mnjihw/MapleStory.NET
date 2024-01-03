@@ -25,7 +25,7 @@ dotnet add package MapleStory.NET
 ```csharp
 using MapleStory.NET;
 
-var apiKey = "Your api key here";
+var apiKey = "Your_api_key_here";
 
 using var client = new MapleStoryClient(apiKey);
 var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //종합 랭킹 정보 조회
