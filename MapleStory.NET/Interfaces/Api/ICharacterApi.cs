@@ -4,6 +4,7 @@ namespace MapleStory.NET.Interfaces.Api;
 /// </summary>
 public interface ICharacterApi
 {
+
     /// <summary>
     /// Endpoint: GET /maplestory/v1/id
     /// <para>Gets the identifier (ocid) of a character based on its name.</para>
@@ -13,11 +14,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="characterName">The name of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<Character> object. If the operation is successful, 
-    /// this object will contain the Character data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing Character object on success or error on failure.</returns>
     Task<CallResult<Character>> GetAsync(string characterName, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/basic
@@ -28,11 +25,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterBasic> object. If the operation is successful, 
-    /// this object contains the CharacterBasic data. If the operation fails, it contains an Error detailing the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterBasic object on success or error on failure.</returns>
     Task<CallResult<CharacterBasic>> GetBasicAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/basic
@@ -44,11 +37,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterBasic> object. If the operation is successful, 
-    /// this object contains the CharacterBasic data. If the operation fails, it contains an Error detailing the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterBasic object on success or error on failure.</returns>
     Task<CallResult<CharacterBasic>> GetBasicAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/popularity
@@ -59,11 +48,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPopularity> object. If the operation is successful, 
-    /// this object will contain the CharacterPopularity data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPopularity object on success or error on failure.</returns>
     Task<CallResult<CharacterPopularity>> GetPopularityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/popularity
@@ -75,11 +60,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPopularity> object. If the operation is successful, 
-    /// this object will contain the CharacterPopularity data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPopularity object on success or error on failure.</returns>
     Task<CallResult<CharacterPopularity>> GetPopularityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/stat
@@ -90,11 +71,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterStat> object. If the operation is successful, 
-    /// this object will contain the CharacterStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterStat object on success or error on failure.</returns>
     Task<CallResult<CharacterStat>> GetStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/stat
@@ -106,11 +83,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterStat> object. If the operation is successful, 
-    /// this object will contain the CharacterStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterStat object on success or error on failure.</returns>
     Task<CallResult<CharacterStat>> GetStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hyper-stat
@@ -121,11 +94,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHyperStat> object. If the operation is successful, 
-    /// this object will contain the CharacterHyperStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHyperStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHyperStat>> GetHyperStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// GET /maplestory/v1/character/hyper-stat
@@ -137,11 +106,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHyperStat> object. If the operation is successful, 
-    /// this object will contain the CharacterHyperStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHyperStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHyperStat>> GetHyperStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/propensity
@@ -152,11 +117,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPropesity> object. If the operation is successful, 
-    /// this object will contain the CharacterPropesity data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPropesity object on success or error on failure.</returns>
     Task<CallResult<CharacterPropesity>> GetPropensityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/propensity
@@ -168,11 +129,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPropesity> object. If the operation is successful, 
-    /// this object will contain the CharacterPropesity data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPropesity object on success or error on failure.</returns>
     Task<CallResult<CharacterPropesity>> GetPropensityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/ability
@@ -183,11 +140,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterAbility> object. If the operation is successful, 
-    /// this object will contain the CharacterAbility data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterAbility object on success or error on failure.</returns>
     Task<CallResult<CharacterAbility>> GetAbilityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/ability
@@ -199,11 +152,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterAbility> object. If the operation is successful, 
-    /// this object will contain the CharacterAbility data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterAbility object on success or error on failure.</returns>
     Task<CallResult<CharacterAbility>> GetAbilityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/item-equipment
@@ -214,11 +163,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterItemEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterItemEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterItemEquipment>> GetItemEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/item-equipment
@@ -230,11 +175,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterItemEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterItemEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterItemEquipment>> GetItemEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
@@ -245,11 +186,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterCashItemEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterCashItemEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterCashItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterCashItemEquipment>> GetCashItemEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
@@ -261,11 +198,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterCashItemEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterCashItemEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterCashItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterCashItemEquipment>> GetCashItemEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
@@ -276,11 +209,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSymbolEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterSymbolEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSymbolEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterSymbolEquipment>> GetSymbolEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
@@ -292,11 +221,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSymbolEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterSymbolEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSymbolEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterSymbolEquipment>> GetSymbolEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/set-effect
@@ -307,11 +232,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSetEffect> object. If the operation is successful, 
-    /// this object will contain the CharacterSetEffect data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSetEffect object on success or error on failure.</returns>
     Task<CallResult<CharacterSetEffect>> GetSetEffectAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/set-effect
@@ -323,11 +244,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSetEffect> object. If the operation is successful, 
-    /// this object will contain the CharacterSetEffect data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSetEffect object on success or error on failure.</returns>
     Task<CallResult<CharacterSetEffect>> GetSetEffectAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/beauty-equiment
@@ -338,11 +255,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterBeautyEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterBeautyEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterBeautyEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterBeautyEquipment>> GetBeautyEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/beauty-equipment
@@ -354,11 +267,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterBeautyEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterBeautyEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterBeautyEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterBeautyEquipment>> GetBeautyEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/android-equipment
@@ -369,11 +278,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterAndroidEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterAndroidEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterAndroidEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterAndroidEquipment>> GetAndroidEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/android-equipment
@@ -385,11 +290,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterAndroidEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterAndroidEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterAndroidEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterAndroidEquipment>> GetAndroidEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
@@ -400,11 +301,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPetEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterPetEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPetEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterPetEquipment>> GetPetEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
@@ -416,11 +313,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterPetEquipment> object. If the operation is successful, 
-    /// this object will contain the CharacterPetEquipment data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterPetEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterPetEquipment>> GetPetEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/skill
@@ -466,11 +359,7 @@ public interface ICharacterApi
     /// </para>
     /// </param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSkill> object. If the operation is successful, 
-    /// this object will contain the CharacterSkill data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterSkill>> GetSkillAsync(string ocid, string characterSkillGrade, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/skill
@@ -517,11 +406,7 @@ public interface ICharacterApi
     /// </para>
     /// </param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterSkill> object. If the operation is successful, 
-    /// this object will contain the CharacterSkill data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterSkill>> GetSkillAsync(string ocid, DateOnly date, string characterSkillGrade, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/link-skill
@@ -532,11 +417,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterLinkSkill> object. If the operation is successful, 
-    /// this object will contain the CharacterLinkSkill data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterLinkSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterLinkSkill>> GetLinkSkillAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/link-skill
@@ -548,11 +429,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterLinkSkill> object. If the operation is successful, 
-    /// this object will contain the CharacterLinkSkill data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterLinkSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterLinkSkill>> GetLinkSkillAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/vmatrix
@@ -563,11 +440,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterVMatrix> object. If the operation is successful, 
-    /// this object will contain the CharacterVMatrix data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterVMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterVMatrix>> GetVMatrixAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/vmatrix
@@ -579,11 +452,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterVMatrix> object. If the operation is successful, 
-    /// this object will contain the CharacterVMatrix data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterVMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterVMatrix>> GetVMatrixAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
@@ -594,11 +463,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHexaMatrix> object. If the operation is successful, 
-    /// this object will contain the CharacterHexaMatrix data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHexaMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrix>> GetHexaMatrixAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
@@ -610,11 +475,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHexaMatrix> object. If the operation is successful, 
-    /// this object will contain the CharacterHexaMatrix data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHexaMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrix>> GetHexaMatrixAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
@@ -625,11 +486,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHexaMatrixStat> object. If the operation is successful, 
-    /// this object will contain the CharacterHexaMatrixStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHexaMatrixStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrixStat>> GetHexaMatrixStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
@@ -641,11 +498,7 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterHexaMatrixStat> object. If the operation is successful, 
-    /// this object will contain the CharacterHexaMatrixStat data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterHexaMatrixStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrixStat>> GetHexaMatrixStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/dojang
@@ -656,11 +509,7 @@ public interface ICharacterApi
     /// </summary>
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterDojang> object. If the operation is successful, 
-    /// this object will contain the CharacterDojang data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterDojang object on success or error on failure.</returns>
     Task<CallResult<CharacterDojang>> GetDojangAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/dojang
@@ -672,10 +521,6 @@ public interface ICharacterApi
     /// <param name="ocid">The unique ocid identifier of the character.</param>
     /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
-    /// <returns>
-    /// A task that, when completed, yields a CallResult<CharacterDojang> object. If the operation is successful, 
-    /// this object will contain the CharacterDojang data. In case of failure, it will include an Error with details of the failure.
-    /// The Success property of CallResult can be used to check if the call was successful.
-    /// </returns>
+    /// <returns>A call result containing CharacterDojang object on success or error on failure.</returns>
     Task<CallResult<CharacterDojang>> GetDojangAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
 }
