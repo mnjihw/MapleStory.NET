@@ -13,6 +13,12 @@ public class MapleStoryClient : IMapleStoryClient
     public IUnionApi UnionApi { get; }
     protected ILogger Logger { get; private set; }
 
+    /// <summary>
+    /// Initializes a new instance of the class with specified HttpClient, API key, and ILoggerFactory.
+    /// </summary>
+    /// <param name="httpClient">HttpClient instance used throughout the lifecycle</param>
+    /// <param name="apiKey">API Key issued by Nexon Open API Center.</param>
+    /// <param name="loggerFactory">ILoggerFactory instance used to create a logger for logging.</param>
     public MapleStoryClient(HttpClient httpClient, string apiKey, ILoggerFactory? loggerFactory = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(apiKey);
