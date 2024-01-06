@@ -23,7 +23,7 @@ if (!characterResult.Success)
 }
 
 var ocid = characterResult.Data!.Ocid!;
-var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic information
+var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic data
 
 if (!characterBasicResult.Success)
 {

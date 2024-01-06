@@ -1,5 +1,7 @@
 # MapleStory.NET
 
+English | [한국어](README-ko.md)
+
 [![NuGet](https://img.shields.io/nuget/v/MapleStory.NET)](https://www.nuget.org/packages/MapleStory.NET)
 
 MapleStory.NET is a wrapper to simplify the use of Nexon's MapleStory Open API, which offers functionality for retrieving data, such as character details, cube usage results, and various rankings.
@@ -47,7 +49,7 @@ if (!characterResult.Success)
 }
 
 var ocid = characterResult.Data!.Ocid!;
-var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic information
+var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //fetch basic data
 
 if (!characterBasicResult.Success)
 {
