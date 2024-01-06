@@ -5,6 +5,7 @@ global using System.Text.Json.Serialization;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Logging.Abstractions;
 global using MapleStory.NET.Api;
+global using MapleStory.NET.Enums;
 global using MapleStory.NET.Interfaces.Api;
 global using MapleStory.NET.Objects;
 global using MapleStory.NET.Objects.CharacterModels.Character;
