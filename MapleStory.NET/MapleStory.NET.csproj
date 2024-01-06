@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>MapleStory.NET</PackageId>
-    <Version>4.2.1</Version>
+    <Version>4.2.2</Version>
     <Authors>Jihwan Moon</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
