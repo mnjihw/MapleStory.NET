@@ -39,5 +39,5 @@ public static class ExtensionMethods
     /// <typeparam name="T">Type of the object to serialize.</typeparam>
     /// <param name="obj">Object to serialize. Returns a JSON representation of null if the object is null.</param>
     /// <returns>JSON string of the object, formatted according to Helper.JsonSerializerOptions.</returns>
-    public static string ToJsonString<T>(this T obj) where T : class => JsonSerializer.Serialize(obj, Helper.JsonSerializerOptions);
+    public static string ToJsonString<T>(this T obj) => JsonSerializer.Serialize(obj, Helper.JsonSerializerOptions);
 }
