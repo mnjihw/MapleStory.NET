@@ -4,326 +4,325 @@ namespace MapleStory.NET.Interfaces.Api;
 /// </summary>
 public interface ICharacterApi
 {
-
     /// <summary>
     /// Endpoint: GET /maplestory/v1/id
-    /// <para>Gets the identifier (ocid) of a character based on its name.</para>
+    /// <para>Gets identifier (ocid) of a character based on its name.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="characterName">The name of the character.</param>
+    /// <param name="characterName">Name of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing Character object on success or error on failure.</returns>
     Task<CallResult<Character>> GetAsync(string characterName, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/basic
-    /// <para>Gets the basic information of a character.</para>
+    /// <para>Gets basic data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterBasic object on success or error on failure.</returns>
     Task<CallResult<CharacterBasic>> GetBasicAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/basic
-    /// <para>Gets the basic information of a character.</para>
+    /// <para>Gets basic data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterBasic object on success or error on failure.</returns>
     Task<CallResult<CharacterBasic>> GetBasicAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/popularity
-    /// <para>Gets the popularity information of a character.</para>
+    /// <para>Gets popularity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPopularity object on success or error on failure.</returns>
     Task<CallResult<CharacterPopularity>> GetPopularityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/popularity
-    /// <para>Gets the popularity information of a character.</para>
+    /// <para>Gets popularity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPopularity object on success or error on failure.</returns>
     Task<CallResult<CharacterPopularity>> GetPopularityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/stat
-    /// <para>Gets the stat information of a character.</para>
+    /// <para>Gets stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterStat object on success or error on failure.</returns>
     Task<CallResult<CharacterStat>> GetStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/stat
-    /// <para>Gets the stat information of a character.</para>
+    /// <para>Gets stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterStat object on success or error on failure.</returns>
     Task<CallResult<CharacterStat>> GetStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hyper-stat
-    /// <para>Gets the hyper stat information of a character.</para>
+    /// <para>Gets hyper stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHyperStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHyperStat>> GetHyperStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// GET /maplestory/v1/character/hyper-stat
-    /// <para>Gets the hyper stat information of a character.</para>
+    /// <para>Gets hyper stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHyperStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHyperStat>> GetHyperStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/propensity
-    /// <para>Gets the propensity information of a character.</para>
+    /// <para>Gets propensity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPropesity object on success or error on failure.</returns>
     Task<CallResult<CharacterPropesity>> GetPropensityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/propensity
-    /// <para>Gets the propensity information of a character.</para>
+    /// <para>Gets propensity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPropesity object on success or error on failure.</returns>
     Task<CallResult<CharacterPropesity>> GetPropensityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/ability
-    /// <para>Gets the ability information of a character.</para>
+    /// <para>Gets ability data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Ientifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterAbility object on success or error on failure.</returns>
     Task<CallResult<CharacterAbility>> GetAbilityAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/ability
-    /// <para>Gets the ability information of a character.</para>
+    /// <para>Gets ability data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterAbility object on success or error on failure.</returns>
     Task<CallResult<CharacterAbility>> GetAbilityAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/item-equipment
-    /// <para>Gets the item equipment information of a character except cash equipment.</para>
+    /// <para>Gets item equipment data of a character except cash equipment.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterItemEquipment>> GetItemEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/item-equipment
-    /// <para>Gets the item equipment information of a character except cash equipment.</para>
+    /// <para>Gets item equipment data of a character except cash equipment.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterItemEquipment>> GetItemEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
-    /// <para>Gets the cash equipment information of a character.</para>
+    /// <para>Gets cash equipment data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterCashItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterCashItemEquipment>> GetCashItemEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
-    /// <para>Gets the cash equipment information of a character.</para>
+    /// <para>Gets cash equipment data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterCashItemEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterCashItemEquipment>> GetCashItemEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
-    /// <para>Gets the equipped symbol information of a character.</para>
+    /// <para>Gets equipped symbol data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterSymbolEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterSymbolEquipment>> GetSymbolEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
-    /// <para>Gets the equipped symbol information of a character.</para>
+    /// <para>Gets equipped symbol data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterSymbolEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterSymbolEquipment>> GetSymbolEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/set-effect
-    /// <para>Gets the set effect information being applied to a character.</para>
+    /// <para>Gets set effect data being applied to a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterSetEffect object on success or error on failure.</returns>
     Task<CallResult<CharacterSetEffect>> GetSetEffectAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/set-effect
-    /// <para>Gets the set effect information being applied to a character.</para>
+    /// <para>Gets set effect data being applied to a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterSetEffect object on success or error on failure.</returns>
     Task<CallResult<CharacterSetEffect>> GetSetEffectAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/beauty-equiment
-    /// <para>Gets the hair, plastic surgery, and skin information of a character.</para>
+    /// <para>Gets hair, plastic surgery, and skin data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterBeautyEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterBeautyEquipment>> GetBeautyEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/beauty-equipment
-    /// <para>Gets the hair, plastic surgery, and skin information of a character.</para>
+    /// <para>Gets hair, plastic surgery, and skin data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterBeautyEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterBeautyEquipment>> GetBeautyEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/android-equipment
-    /// <para>Gets the android information equipped with a character.</para>
+    /// <para>Gets android data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterAndroidEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterAndroidEquipment>> GetAndroidEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/android-equipment
-    /// <para>Gets the android information equipped with a character.</para>
+    /// <para>Gets android data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterAndroidEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterAndroidEquipment>> GetAndroidEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
-    /// <para>Gets the pet, pet skill, and equipment information equipped with a character.</para>
+    /// <para>Gets pet, pet skill, and equipment data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPetEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterPetEquipment>> GetPetEquipmentAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
-    /// <para>Gets the pet, pet skill, and equipment information equipped with a character.</para>
+    /// <para>Gets pet, pet skill, and equipment data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterPetEquipment object on success or error on failure.</returns>
     Task<CallResult<CharacterPetEquipment>> GetPetEquipmentAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/skill
-    /// <para>Gets the skill and hyper skill information of a character.</para>
+    /// <para>Gets skill and hyper skill data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="characterSkillGrade">The skill grade of the class.
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="characterSkillGrade">Skill grade of the class.
     /// <para>
     /// 0: 0th skills and Zero's public skills.
     /// </para>
@@ -363,14 +362,14 @@ public interface ICharacterApi
     Task<CallResult<CharacterSkill>> GetSkillAsync(string ocid, string characterSkillGrade, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/skill
-    /// <para>Gets the skill and hyper skill information of a character.</para>
+    /// <para>Gets skill and hyper skill data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
-    /// <param name="characterSkillGrade">The skill grade of the class.
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="characterSkillGrade">Skill grade of the class.
     /// <para>
     /// 0: 0th skills and Zero's public skills.
     /// </para>
@@ -410,116 +409,116 @@ public interface ICharacterApi
     Task<CallResult<CharacterSkill>> GetSkillAsync(string ocid, DateOnly date, string characterSkillGrade, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/link-skill
-    /// <para>Gets the link skill information equipped with a character.</para>
+    /// <para>Gets link skill data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterLinkSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterLinkSkill>> GetLinkSkillAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/link-skill
-    /// <para>Gets the link skill information equipped with a character.</para>
+    /// <para>Gets link skill data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterLinkSkill object on success or error on failure.</returns>
     Task<CallResult<CharacterLinkSkill>> GetLinkSkillAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/vmatrix
-    /// <para>Gets the information of the V Matrix slots and the V Cores mounted.</para>
+    /// <para>Gets data of V Matrix slots and V Cores mounted.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterVMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterVMatrix>> GetVMatrixAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/vmatrix
-    /// <para>Gets the information of the V Matrix slots and the V Cores mounted.</para>
+    /// <para>Gets data of V Matrix slots and V Cores mounted.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterVMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterVMatrix>> GetVMatrixAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
-    /// <para>Gets the HEXA Cores information mounted on the HEXA Matrix.</para>
+    /// <para>Gets HEXA Cores data mounted on HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHexaMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrix>> GetHexaMatrixAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
-    /// <para>Gets the HEXA Cores information mounted on the HEXA Matrix.</para>
+    /// <para>Gets HEXA Cores data mounted on HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHexaMatrix object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrix>> GetHexaMatrixAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
-    /// <para>Gets the HEXA stat information set to the HEXA Matrix.</para>
+    /// <para>Gets HEXA stat data set to HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHexaMatrixStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrixStat>> GetHexaMatrixStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
-    /// <para>Gets the HEXA stat information set to the HEXA Matrix.</para>
+    /// <para>Gets HEXA stat data set to HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterHexaMatrixStat object on success or error on failure.</returns>
     Task<CallResult<CharacterHexaMatrixStat>> GetHexaMatrixStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/dojang
-    /// <para>Gets the record of Dojang (Mu Lung Dojo).</para>
+    /// <para>Gets record of Dojang (Mu Lung Dojo).</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
+    /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterDojang object on success or error on failure.</returns>
     Task<CallResult<CharacterDojang>> GetDojangAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/dojang
-    /// <para>Gets the record of Dojang (Mu Lung Dojo).</para>
+    /// <para>Gets record of Dojang (Mu Lung Dojo).</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM, returns data from two days prior.</para>
+    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
     /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
-    /// <param name="ocid">The unique ocid identifier of the character.</param>
-    /// <param name="date">The reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="ocid">Identifier of a character.</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
     /// <returns>A call result containing CharacterDojang object on success or error on failure.</returns>
     Task<CallResult<CharacterDojang>> GetDojangAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);

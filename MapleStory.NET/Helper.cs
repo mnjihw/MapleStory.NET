@@ -1,7 +1,6 @@
 namespace MapleStory.NET;
-
 /// <summary>
-/// General helper methods.
+/// General helper class.
 /// </summary>
 public static class Helper
 {

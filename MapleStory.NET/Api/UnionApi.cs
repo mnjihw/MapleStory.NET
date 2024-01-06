@@ -10,9 +10,13 @@ public class UnionApi : BaseApi, IUnionApi
     private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal UnionApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
+    /// <inheritdoc />
     public Task<CallResult<Union>> GetAsync(string ocid, CancellationToken cancellationToken = default) => GetAsync(ocid, LatestAvailableDate, cancellationToken);
+    /// <inheritdoc />
     public Task<CallResult<Union>> GetAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<Union>(UnionEndpoint, ocid, date, cancellationToken);
+    /// <inheritdoc />
     public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, CancellationToken cancellationToken = default) => GetRaiderAsync(ocid, LatestAvailableDate, cancellationToken);
+    /// <inheritdoc />
     public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<UnionRaider>(UnionRaiderEndpoint, ocid, date, cancellationToken);
     private Task<CallResult<T>> GetAsync<T>(string endpoint, string ocid, DateOnly date, CancellationToken cancellationToken) where T : class
     {
