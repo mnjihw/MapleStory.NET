@@ -10,20 +10,23 @@ public class GuildApi : BaseApi, IGuildApi
     private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
 
     internal GuildApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
-    public Task<CallResult<Guild>> GetAsync(string guildName, string worldName, CancellationToken cancellationToken = default)
+    /// <inheritdoc />
+    public Task<CallResult<Guild>> GetAsync(string guildName, World world, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(guildName);
-        ArgumentException.ThrowIfNullOrWhiteSpace(worldName);
+        if (world == World.All)
+            throw new ArgumentException("A specific World must be set.", nameof(world));
 
         var parameters = new Dictionary<string, string>
         {
             ["guild_name"] = guildName,
-            ["world_name"] = worldName,
+            ["world_name"] = world.ToString(),
         };
         return GetAsync<Guild>($"{ResourcePath}/{IdEndpoint}", parameters, cancellationToken);
     }
-
+    /// <inheritdoc />
     public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, CancellationToken cancellationToken = default) => GetBasicAsync(oguildId, LatestAvailableDate, cancellationToken);
+    /// <inheritdoc />
     public Task<CallResult<GuildBasic>> GetBasicAsync(string oguildId, DateOnly date, CancellationToken cancellationToken = default)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(oguildId);
