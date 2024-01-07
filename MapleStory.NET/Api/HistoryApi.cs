@@ -1,5 +1,5 @@
 namespace MapleStory.NET.Api;
-
+/// <inheritdoc />
 public class HistoryApi : BaseApi, IHistoryApi
 {
     private const string ResourcePath = "/maplestory/v1/history";

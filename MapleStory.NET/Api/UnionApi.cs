@@ -1,5 +1,5 @@
 namespace MapleStory.NET.Api;
-
+/// <inheritdoc />
 public class UnionApi : BaseApi, IUnionApi
 {
     private const string ResourcePath = "/maplestory/v1/user";

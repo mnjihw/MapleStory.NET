@@ -1,4 +1,5 @@
 namespace MapleStory.NET;
+/// <inheritdoc />
 public class MapleStoryClient : IMapleStoryClient
 {
     /// <inheritdoc />

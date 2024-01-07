@@ -1,5 +1,5 @@
 namespace MapleStory.NET.Api;
-
+/// <inheritdoc />
 public class GuildApi : BaseApi, IGuildApi
 {
     private const string ResourcePath = "/maplestory/v1/guild";

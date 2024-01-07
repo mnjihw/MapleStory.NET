@@ -1,15 +1,21 @@
 namespace MapleStory.NET.Interfaces.Api;
 /// <summary>
-/// Endpoints for character data.
+/// For accessing various MapleStory character-related data via API endpoints.
+/// Each method retrieves a specific type of data and returns the result in a CallResult object.
 /// </summary>
+/// <remarks>
+/// All API endpoints provide data only available from December 21, 2023, onwards.
+/// Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.
+/// Be mindful that character's ocid may change with game updates, affecting ocid-based queries.
+/// </remarks>
 public interface ICharacterApi
 {
     /// <summary>
     /// Endpoint: GET /maplestory/v1/id
     /// <para>Gets identifier (ocid) of a character based on its name.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="characterName">Name of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -19,8 +25,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/basic
     /// <para>Gets basic data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -30,8 +36,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/basic
     /// <para>Gets basic data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -42,8 +48,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/popularity
     /// <para>Gets popularity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -53,8 +59,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/popularity
     /// <para>Gets popularity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -65,8 +71,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/stat
     /// <para>Gets stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -76,8 +82,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/stat
     /// <para>Gets stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -86,10 +92,10 @@ public interface ICharacterApi
     Task<CallResult<CharacterStat>> GetStatAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/hyper-stat
-    /// <para>Gets hyper stat data of a character.</para>
+    /// <para>Gets Hyper stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -97,10 +103,10 @@ public interface ICharacterApi
     Task<CallResult<CharacterHyperStat>> GetHyperStatAsync(string ocid, CancellationToken cancellationToken = default);
     /// <summary>
     /// GET /maplestory/v1/character/hyper-stat
-    /// <para>Gets hyper stat data of a character.</para>
+    /// <para>Gets Hyper stat data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -111,8 +117,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/propensity
     /// <para>Gets propensity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -122,8 +128,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/propensity
     /// <para>Gets propensity data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -134,8 +140,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/ability
     /// <para>Gets ability data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Ientifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -145,8 +151,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/ability
     /// <para>Gets ability data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -157,8 +163,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/item-equipment
     /// <para>Gets item equipment data of a character except cash equipment.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -168,8 +174,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/item-equipment
     /// <para>Gets item equipment data of a character except cash equipment.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -180,8 +186,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
     /// <para>Gets cash equipment data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -191,8 +197,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/cashitem-equipment
     /// <para>Gets cash equipment data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -203,8 +209,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
     /// <para>Gets equipped symbol data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -214,8 +220,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/symbol-equipment
     /// <para>Gets equipped symbol data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -226,8 +232,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/set-effect
     /// <para>Gets set effect data being applied to a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -237,8 +243,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/set-effect
     /// <para>Gets set effect data being applied to a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -249,8 +255,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/beauty-equiment
     /// <para>Gets hair, plastic surgery, and skin data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -260,8 +266,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/beauty-equipment
     /// <para>Gets hair, plastic surgery, and skin data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -272,8 +278,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/android-equipment
     /// <para>Gets android data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -283,8 +289,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/android-equipment
     /// <para>Gets android data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -295,8 +301,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
     /// <para>Gets pet, pet skill, and equipment data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -306,8 +312,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/pet-equipment
     /// <para>Gets pet, pet skill, and equipment data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -318,8 +324,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/skill
     /// <para>Gets skill and hyper skill data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="characterSkillGrade">Skill grade of the class.
@@ -362,10 +368,10 @@ public interface ICharacterApi
     Task<CallResult<CharacterSkill>> GetSkillAsync(string ocid, string characterSkillGrade, CancellationToken cancellationToken = default);
     /// <summary>
     /// Endpoint: GET /maplestory/v1/character/skill
-    /// <para>Gets skill and hyper skill data of a character.</para>
+    /// <para>Gets skill and Hyper skill data of a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -411,8 +417,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/link-skill
     /// <para>Gets link skill data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -422,8 +428,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/link-skill
     /// <para>Gets link skill data equipped with a character.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -434,8 +440,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/vmatrix
     /// <para>Gets data of V Matrix slots and V Cores mounted.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -445,8 +451,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/vmatrix
     /// <para>Gets data of V Matrix slots and V Cores mounted.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -457,8 +463,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
     /// <para>Gets HEXA Cores data mounted on HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -468,8 +474,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/hexamatrix
     /// <para>Gets HEXA Cores data mounted on HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -480,8 +486,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
     /// <para>Gets HEXA stat data set to HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -491,8 +497,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/hexamatrix-stat
     /// <para>Gets HEXA stat data set to HEXA Matrix.</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
@@ -503,8 +509,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/dojang
     /// <para>Gets record of Dojang (Mu Lung Dojo).</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
@@ -514,8 +520,8 @@ public interface ICharacterApi
     /// Endpoint: GET /maplestory/v1/character/dojang
     /// <para>Gets record of Dojang (Mu Lung Dojo).</para>
     /// <para><b>NOTE: Data available only from December 21, 2023 onwards.</b></para>
-    /// <para>Updates daily at 1 AM (KST) with the previous day's data. If before 1 AM (KST), returns data from two days prior.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 1 AM KST with the previous day's data. If a request is made before 1 AM KST, data from two days prior is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">Identifier of a character.</param>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>

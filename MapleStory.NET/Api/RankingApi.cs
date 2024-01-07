@@ -1,5 +1,5 @@
 namespace MapleStory.NET.Api;
-
+/// <inheritdoc />
 public class RankingApi : BaseApi, IRankingApi
 {
     private const string ResourcePath = "/maplestory/v1/ranking";
@@ -44,7 +44,7 @@ public class RankingApi : BaseApi, IRankingApi
             parameters["guild_name"] = guildName;
         return GetAsync<GuildRanking>(GuildEndpoint, date, world, null, page, parameters, cancellationToken);
     }
-
+    /// <inheritdoc />
     public Task<CallResult<DojangRanking>> GetDojangRankingAsync(DojangDifficulty dojangDifficulty, World world = World.All, Job job = Job.All, string? ocid = null, int page = 1, CancellationToken cancellationToken = default) => GetDojangRankingAsync(LatestAvailableDate, dojangDifficulty, world, job, ocid, page, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<DojangRanking>> GetDojangRankingAsync(DateOnly date, DojangDifficulty dojangDifficulty, World world = World.All, Job job = Job.All, string? ocid = null, int page = 1, CancellationToken cancellationToken = default)

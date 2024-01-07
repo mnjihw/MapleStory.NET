@@ -1,5 +1,5 @@
 namespace MapleStory.NET.Api;
-
+/// <inheritdoc />
 public class CharacterApi : BaseApi, ICharacterApi
 {
     private const string ResourcePath = "/maplestory/v1/character";

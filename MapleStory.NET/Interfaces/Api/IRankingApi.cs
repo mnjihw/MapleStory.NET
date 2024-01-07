@@ -1,15 +1,21 @@
 namespace MapleStory.NET.Interfaces.Api;
 /// <summary>
-/// Endpoints for ranking data.
+/// For accessing various MapleStory ranking-related data via API endpoints.
+/// Each method retrieves a specific type of data and returns the result in a CallResult object.
 /// </summary>
+/// <remarks>
+/// All API endpoints provide data only available from December 22, 2023, onwards.
+/// Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.
+/// Be mindful that character's ocid may change with game updates, affecting ocid-based queries.
+/// </remarks>
 public interface IRankingApi
 {
     /// <summary>
     /// Endpoint: GET /maplestory/v1/ranking/overall
     /// <para>Gets overall ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="world">World whose data will be fetched.</param>
     /// <param name="worldType">World type whose data will be fetched. If world is set, this parameter is ignored.</param>
@@ -23,8 +29,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/overall
     /// <para>Gets overall ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="world">World whose data will be fetched.</param>
@@ -39,8 +45,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/union
     /// <para>Gets union ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="world">World whose data will be fetched.</param>
     /// <param name="ocid">The identifier of a character whose data will be fetched.</param>
@@ -52,8 +58,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/union
     /// <para>Gets union ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="world">World whose data will be fetched.</param>
@@ -66,8 +72,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/guild
     /// <para>Gets guild ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="guildRankingType">Guild ranking type whose data will be fetched.</param>
     /// <param name="world">World whose data will be fetched.</param>
@@ -80,8 +86,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/guild
     /// <para>Gets guild ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="guildRankingType">Guild ranking type whose data will be fetched.</param>
@@ -95,8 +101,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/dojang
     /// <para>Gets Dojang (Mu Lung Dojo) ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="dojangDifficulty">Difficulty of the data to be fetched.</param>
     /// <param name="world">World whose data will be fetched.</param>
@@ -110,8 +116,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/dojang
     /// <para>Gets Dojang (Mu Lung Dojo) ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="dojangDifficulty">Difficulty of the data to be fetched.</param>
@@ -126,8 +132,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/theseed
     /// <para>Gets The Seed ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="world">World whose data will be fetched.</param>
     /// <param name="ocid">The identifier of a character whose data will be fetched.</param>
@@ -139,8 +145,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/theseed
     /// <para>Gets The Seed ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="world">World whose data will be fetched.</param>
@@ -153,8 +159,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/achievement
     /// <para>Gets achievement ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="ocid">The identifier of a character whose data will be fetched.</param>
     /// <param name="page">Page number.</param>
@@ -165,8 +171,8 @@ public interface IRankingApi
     /// Endpoint: GET /maplestory/v1/ranking/achievement
     /// <para>Gets achievement ranking data.</para>
     /// <para><b>NOTE: Data available only from December 22, 2023 onwards.</b></para>
-    /// <para>Updates daily at 8:30 AM (KST) with data from that day. If before 8:30 AM (KST), returns data from the previous day.</para>
-    /// <para>Be mindful that the character's ocid may change with game updates, affecting ocid-based queries.</para>
+    /// <para>Data is updated daily at 8:30 AM KST with data from that day's data. If a request is made before 8:30 AM KST, data from the previous day is returned.</para>
+    /// <para>Be mindful that character's ocid may change with game updates, affecting ocid-based queries.</para>
     /// </summary>
     /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
     /// <param name="ocid">The identifier of a character whose data will be fetched.</param>
