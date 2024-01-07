@@ -1,7 +1,16 @@
 namespace MapleStory.NET.Api;
+/// <summary>
+/// API 추상 클래스
+/// </summary>
 public abstract class BaseApi
 {
+    /// <summary>
+    /// API 기본 주소
+    /// </summary>
     protected internal const string BaseAddress = "https://open.api.nexon.com";
+    /// <summary>
+    /// 로거
+    /// </summary>
     protected ILogger Logger { get; private set; }
     private HttpClient HttpClient { get; set; }
 
@@ -11,7 +20,14 @@ public abstract class BaseApi
         Logger = logger;
         HttpClient = httpClient;
     }
-
+    /// <summary>
+    /// GET 요청을 보냅니다.
+    /// </summary>
+    /// <typeparam name="T">반환할 데이터의 타입</typeparam>
+    /// <param name="endpoint">요청을 보낼 엔드포인트</param>
+    /// <param name="parameters">파라미터 목록</param>
+    /// <param name="cancellationToken">취소 토큰</param>
+    /// <returns></returns>
     protected async Task<CallResult<T>> GetAsync<T>(string endpoint, Dictionary<string, string> parameters, CancellationToken cancellationToken) where T : class
     {
         using var dictFormUrlEncoded = new FormUrlEncodedContent(parameters);

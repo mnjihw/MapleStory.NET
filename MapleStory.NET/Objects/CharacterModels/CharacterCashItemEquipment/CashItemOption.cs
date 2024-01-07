@@ -1,15 +1,15 @@
 namespace MapleStory.NET.Objects.CharacterModels.CharacterCashItemEquipment;
 /// <summary>
-/// Cash item option.
+/// 캐시 장비 옵션
 /// </summary>
 public class CashItemOption
 {
     /// <summary>
-    /// Option type.
+    /// 옵션 타입
     /// </summary>
     public string? OptionType { get; set; }
     /// <summary>
-    /// Option value.
+    /// 옵션 값
     /// </summary>
     public string? OptionValue { get; set; }
 }

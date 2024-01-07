@@ -2,16 +2,29 @@ namespace MapleStory.NET;
 /// <inheritdoc />
 public class MapleStoryClient : IMapleStoryClient
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// 캐릭터 API 호출을 위한 인터페이스
+    /// </summary>
     public ICharacterApi CharacterApi { get; }
-    /// <inheritdoc />
+    /// <summary>
+    /// 길드 API 호출을 위한 인터페이스
+    /// </summary>
     public IGuildApi GuildApi { get; }
-    /// <inheritdoc />
+    /// <summary>
+    /// 히스토리 API 호출을 위한 인터페이스
+    /// </summary>
     public IHistoryApi HistoryApi { get; }
-    /// <inheritdoc />
+    /// <summary>
+    /// 랭킹 API 호출을 위한 인터페이스
+    /// </summary>
     public IRankingApi RankingApi { get; }
-    /// <inheritdoc />
+    /// <summary>
+    /// 유니온 API 호출을 위한 인터페이스
+    /// </summary>
     public IUnionApi UnionApi { get; }
+    /// <summary>
+    /// 로깅을 위한 인터페이스
+    /// </summary>
     protected ILogger Logger { get; private set; }
 
     /// <summary>

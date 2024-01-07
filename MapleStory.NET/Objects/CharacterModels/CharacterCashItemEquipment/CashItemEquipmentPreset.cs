@@ -55,7 +55,7 @@ public class CashItemEquipmentPreset
     /// </summary>
     public List<CashItemColoringPrism>? CashItemColoringPrism { get; set; }
     /// <summary>
-    /// Base
+    /// Whether equipment sharing for preset 1 has been disabled without additional equipment on other presets.
     /// </summary>
     public string? BasePresetItemDisableFlag { get; set; }
 }
