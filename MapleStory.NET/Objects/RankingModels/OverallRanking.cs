@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.RankingModels;
 /// 종합 랭킹 정보
 /// </summary>
 /// <param name="Ranking"> 종합 랭킹 세부정보 리스트 </param>
-public record OverallRanking(List<OverallRankingDetails>? Ranking);
+public record OverallRanking(List<OverallRankingDetails> Ranking);
 
 /// <summary>
 /// 종합 랭킹 세부정보
@@ -18,7 +18,7 @@ public record OverallRanking(List<OverallRankingDetails>? Ranking);
 /// <param name="CharacterExp"> 캐릭터 경험치 </param>
 /// <param name="CharacterPopularity"> 캐릭터 인기도 </param>
 /// <param name="CharacterGuildname"> 길드 명 </param>
-public record OverallRankingDetails(int Ranking, string? CharacterName, string? WorldName, string? ClassName, string? SubClassName, int CharacterLevel, long CharacterExp, int CharacterPopularity, string? CharacterGuildname)
+public record OverallRankingDetails(int? Ranking, string CharacterName, string WorldName, string ClassName, string SubClassName, int? CharacterLevel, long? CharacterExp, int? CharacterPopularity, string CharacterGuildname)
 {
     private DateTimeOffset? _date;
     /// <summary>

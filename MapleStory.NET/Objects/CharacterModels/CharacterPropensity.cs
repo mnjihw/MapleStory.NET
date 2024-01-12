@@ -9,7 +9,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="WillingnessLevel"> 의지 레벨 </param>
 /// <param name="HandicraftLevel"> 손재주 레벨 </param>
 /// <param name="CharmLevel"> 매력 레벨 </param>
-public record CharacterPropesity(long CharismaLevel, long SensibilityLevel, long InsightLevel, long WillingnessLevel, long HandicraftLevel, long CharmLevel)
+public record CharacterPropesity(long? CharismaLevel, long? SensibilityLevel, long? InsightLevel, long? WillingnessLevel, long? HandicraftLevel, long? CharmLevel)
 {
     private DateTimeOffset? _date;
     /// <summary>

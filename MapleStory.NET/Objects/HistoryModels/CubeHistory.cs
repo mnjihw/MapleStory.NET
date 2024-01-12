@@ -6,7 +6,7 @@ namespace MapleStory.NET.Objects.HistoryModels;
 /// <param name="Count"> 결과 건수 </param>
 /// <param name="NextCursor"> 페이징 처리를 위한 cursor </param>
 /// <param name="CubeHistoryDetails"> 큐브 히스토리 세부정보 리스트 </param>
-public record CubeHistory(int Count, string? NextCursor, [property: JsonPropertyName("cube_history")] List<CubeHistoryDetails>? CubeHistoryDetails);
+public record CubeHistory(int? Count, string NextCursor, [property: JsonPropertyName("cube_history")] List<CubeHistoryDetails> CubeHistoryDetails);
 
 /// <summary>
 /// 큐브 히스토리 세부정보
@@ -27,7 +27,7 @@ public record CubeHistory(int Count, string? NextCursor, [property: JsonProperty
 /// <param name="BeforeAdditionalPotentialOption"> 사용 전 에디셔널 잠재능력 옵션 리스트 </param>
 /// <param name="AfterPotentialOption"> 사용 후 잠재능력 옵션 리스트 </param>
 /// <param name="AfterAdditionalPotentialOption"> 사용 후 에디셔널 잠재능력 옵션 리스트 </param>
-public record CubeHistoryDetails(string? Id, string? CharacterName, string? CubeType, string? ItemUpgradeResult, string? MiracleTimeFlag, string? ItemEquipmentPart, int ItemLevel, string? TargetItem, string? PotentialOptionGrade, string? AdditionalPotentialOptionGrade, bool UpgradeGuarantee, int UpgradeGuaranteeCount, List<PotentialOption>? BeforePotentialOption, List<PotentialOption>? BeforeAdditionalPotentialOption, List<PotentialOption>? AfterPotentialOption, List<PotentialOption>? AfterAdditionalPotentialOption)
+public record CubeHistoryDetails(string Id, string CharacterName, string CubeType, string ItemUpgradeResult, string MiracleTimeFlag, string ItemEquipmentPart, int? ItemLevel, string TargetItem, string PotentialOptionGrade, string AdditionalPotentialOptionGrade, bool? UpgradeGuarantee, int? UpgradeGuaranteeCount, List<PotentialOption> BeforePotentialOption, List<PotentialOption> BeforeAdditionalPotentialOption, List<PotentialOption> AfterPotentialOption, List<PotentialOption> AfterAdditionalPotentialOption)
 {
     private DateTimeOffset? _dateCreate;
     /// <summary>
@@ -45,4 +45,4 @@ public record CubeHistoryDetails(string? Id, string? CharacterName, string? Cube
 /// </summary>
 /// <param name="Value"> 옵션 명 </param>
 /// <param name="Grade"> 옵션 등급 </param>
-public record PotentialOption(string? Value, string? Grade);
+public record PotentialOption(string Value, string Grade);

@@ -6,7 +6,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="CharacterHexaStatCore"> HEXA 스탯 코어 정보 리스트 </param>
 /// <param name="PresetHexaStatCore"> 프리셋 HEXA 스탯 코어 정보 리스트 </param>
-public record CharacterHexaMatrixStat(string? CharacterClass, List<CharacterHexaStatCore>? CharacterHexaStatCore, List<CharacterHexaStatCore>? PresetHexaStatCore)
+public record CharacterHexaMatrixStat(string CharacterClass, List<CharacterHexaStatCore> CharacterHexaStatCore, List<CharacterHexaStatCore> PresetHexaStatCore)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -30,4 +30,4 @@ public record CharacterHexaMatrixStat(string? CharacterClass, List<CharacterHexa
 /// <param name="SubStatLevel_1"> 첫 번째 서브 레벨 </param>
 /// <param name="SubStatLevel_2"> 두 번째 서브 레벨 </param>
 /// <param name="StatGrade"> 스탯 코어 등급 </param>
-public record CharacterHexaStatCore(string? SlotId, string? MainStatName, string? SubStatName_1, string? SubStatName_2, long MainStatLevel, long SubStatLevel_1, long SubStatLevel_2, long StatGrade);
+public record CharacterHexaStatCore(string SlotId, string MainStatName, string SubStatName_1, string SubStatName_2, long? MainStatLevel, long? SubStatLevel_1, long? SubStatLevel_2, long? StatGrade);

@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// 캐릭터 인기도 정보
 /// </summary>
 /// <param name="Popularity"> 캐릭터 인기도 </param>
-public record CharacterPopularity(long Popularity)
+public record CharacterPopularity(long? Popularity)
 {
     private DateTimeOffset? _date;
     /// <summary>

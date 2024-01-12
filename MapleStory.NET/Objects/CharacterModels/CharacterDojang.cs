@@ -7,7 +7,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="WorldName"> 월드 명 </param>
 /// <param name="DojangBestFloor"> 무릉도장 최고 기록 층수 </param>
 /// <param name="DojangBestTime"> 무릉도장 최고 층수 클리어에 걸린 시간 (초) </param>
-public record CharacterDojang(string? CharacterClass, string? WorldName, long DojangBestFloor, long DojangBestTime)
+public record CharacterDojang(string CharacterClass, string WorldName, long? DojangBestFloor, long? DojangBestTime)
 {
     private DateTimeOffset? _date;
     /// <summary>

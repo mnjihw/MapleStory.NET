@@ -6,7 +6,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="FinalStat"> 현재 스탯 정보 리스트 </param>
 /// <param name="RemainAp"> 잔여 AP </param>
-public record CharacterStat(string? CharacterClass, List<FinalStat>? FinalStat, long RemainAp)
+public record CharacterStat(string CharacterClass, List<FinalStat> FinalStat, long? RemainAp)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -24,4 +24,4 @@ public record CharacterStat(string? CharacterClass, List<FinalStat>? FinalStat, 
 /// </summary>
 /// <param name="StatName"> 스탯 명 </param>
 /// <param name="StatValue"> 스탯 값 </param>
-public record FinalStat(string? StatName, string? StatValue);
+public record FinalStat(string StatName, string StatValue);

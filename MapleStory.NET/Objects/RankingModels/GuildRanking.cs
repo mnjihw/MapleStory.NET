@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.RankingModels;
 /// 길드 랭킹 정보
 /// </summary>
 /// <param name="Ranking"> 길드 랭킹 세부정보 리스트 </param>
-public record GuildRanking(List<GuildRankingDetails>? Ranking);
+public record GuildRanking(List<GuildRankingDetails> Ranking);
 
 /// <summary>
 /// 길드 랭킹 세부정보
@@ -16,7 +16,7 @@ public record GuildRanking(List<GuildRankingDetails>? Ranking);
 /// <param name="GuildMasterName"> 길드 마스터 캐릭터 명 </param>
 /// <param name="GuildMark"> 길드 마크 </param>
 /// <param name="GuildPoint"> 길드 포인트 </param>
-public record GuildRankingDetails(int Ranking, string? GuildName, string? WorldName, int GuildLevel, string? GuildMasterName, string? GuildMark, long GuildPoint)
+public record GuildRankingDetails(int? Ranking, string GuildName, string WorldName, int? GuildLevel, string GuildMasterName, string GuildMark, long? GuildPoint)
 {
     private DateTimeOffset? _date;
     /// <summary>

@@ -7,7 +7,7 @@ namespace MapleStory.NET.Objects.UnionModels;
 /// <param name="UnionOccupiedStat"> 유니온 공격대 점령 효과 리스트 </param>
 /// <param name="UnionInnerStat"> 유니온 공격대 배치 리스트 </param>
 /// <param name="UnionBlock"> 유니온 블록 정보 리스트 </param>
-public record UnionRaider(List<string>? UnionRaiderStat, List<string>? UnionOccupiedStat, List<UnionInnerStat>? UnionInnerStat, List<UnionBlock>? UnionBlock)
+public record UnionRaider(List<string> UnionRaiderStat, List<string> UnionOccupiedStat, List<UnionInnerStat> UnionInnerStat, List<UnionBlock> UnionBlock)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -25,7 +25,7 @@ public record UnionRaider(List<string>? UnionRaiderStat, List<string>? UnionOccu
 /// </summary>
 /// <param name="X"> 블록 X좌표 </param>
 /// <param name="Y"> 블록 Y좌표 </param>
-public record BlockPosition(long X, long Y);
+public record BlockPosition(long? X, long? Y);
 
 /// <summary>
 /// 블록 기준점 좌표.
@@ -37,7 +37,7 @@ public record BlockPosition(long X, long Y);
 /// </summary>
 /// <param name="X"> 블록 기준점 X좌표 </param>
 /// <param name="Y"> 블록 기준점 Y좌표 </param>
-public record BlockControlPoint(long X, long Y);
+public record BlockControlPoint(long? X, long? Y);
 
 /// <summary>
 /// 유니온 블록 정보
@@ -47,11 +47,11 @@ public record BlockControlPoint(long X, long Y);
 /// <param name="BlockLevel"> 블록 해당 캐릭터 레벨 </param>
 /// <param name="BlockControlPoint"> 블록 기준점 좌표 </param>
 /// <param name="BlockPosition"> 블록이 차지하고 있는 영역 좌표들의 리스트(null: 미 배치 시) </param>
-public record UnionBlock(string? BlockType, string? BlockClass, string? BlockLevel, BlockControlPoint? BlockControlPoint, List<BlockPosition>? BlockPosition);
+public record UnionBlock(string BlockType, string BlockClass, string BlockLevel, BlockControlPoint BlockControlPoint, List<BlockPosition> BlockPosition);
 
 /// <summary>
 /// 유니온 공격대 배치
 /// </summary>
 /// <param name="StatFieldId"> 공격대 배치 위치 (11시 방향부터 시계 방향 순서대로 0~7) </param>
 /// <param name="StatFieldEffect"> 해당 지역 점령 효과 </param>
-public record UnionInnerStat(string? StatFieldId, string? StatFieldEffect);
+public record UnionInnerStat(string StatFieldId, string StatFieldEffect);

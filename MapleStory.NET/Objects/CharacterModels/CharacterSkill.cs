@@ -6,7 +6,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="CharacterSkillGrade"> 스킬 전직 차수 </param>
 /// <param name="CharacterSkillDetails"> 스킬 세부정보 리스트 </param>
-public record CharacterSkill(string? CharacterClass, string? CharacterSkillGrade, [property: JsonPropertyName("character_skill")] List<CharacterSkillDetails>? CharacterSkillDetails)
+public record CharacterSkill(string CharacterClass, string CharacterSkillGrade, [property: JsonPropertyName("character_skill")] List<CharacterSkillDetails> CharacterSkillDetails)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -27,4 +27,4 @@ public record CharacterSkill(string? CharacterClass, string? CharacterSkillGrade
 /// <param name="SkillLevel"> 스킬 레벨 </param>
 /// <param name="SkillEffect"> 스킬 레벨별 효과 설명 </param>
 /// <param name="SkillIcon"> 스킬 아이콘 URL </param>
-public record CharacterSkillDetails(string? SkillName, string? SkillDescription, long SkillLevel, string? SkillEffect, string? SkillIcon);
+public record CharacterSkillDetails(string SkillName, string SkillDescription, long? SkillLevel, string SkillEffect, string SkillIcon);
