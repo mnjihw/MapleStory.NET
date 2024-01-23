@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.RankingModels;
 /// 업적 랭킹 정보
 /// </summary>
 /// <param name="Ranking"> 업적 랭킹 세부정보 리스트 </param>
-public record AchievementRanking(List<AchievementRankingDetails> Ranking);
+public record AchievementRanking(List<AchievementRankingDetails>? Ranking);
 
 /// <summary>
 /// 업적 랭킹 세부정보
@@ -16,7 +16,7 @@ public record AchievementRanking(List<AchievementRankingDetails> Ranking);
 /// <param name="SubClassName"> 전직 직업 명 </param>
 /// <param name="TrophyGrade"> 업적 등급 </param>
 /// <param name="TrophyScore"> 업적 점수 </param>
-public record AchievementRankingDetails(int? Ranking, string CharacterName, string WorldName, string ClassName, string SubClassName, string TrophyGrade, int? TrophyScore)
+public record AchievementRankingDetails(int? Ranking, string? CharacterName, string? WorldName, string? ClassName, string? SubClassName, string? TrophyGrade, int? TrophyScore)
 {
     private DateTimeOffset? _date;
     /// <summary>

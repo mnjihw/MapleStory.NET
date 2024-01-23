@@ -12,7 +12,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="AndroidSkinName"> 안드로이드 피부 명 </param>
 /// <param name="AndroidCashItemEquipment"> 안드로이드 캐시 아이템 장착 정보 리스트 </param>
 /// <param name="AndroidEarSensorClipFlag"> 안드로이드 이어센서 클립 적용 여부 </param>
-public record CharacterAndroidEquipment(string AndroidName, string AndroidNickname, string AndroidIcon, string AndroidDescription, AndroidHair AndroidHair, AndroidFace AndroidFace, string AndroidSkinName, List<AndroidCashItemEquipment> AndroidCashItemEquipment, string AndroidEarSensorClipFlag)
+public record CharacterAndroidEquipment(string AndroidName, string? AndroidNickname, string? AndroidIcon, string? AndroidDescription, AndroidHair AndroidHair, AndroidFace AndroidFace, string AndroidSkinName, List<AndroidCashItemEquipment> AndroidCashItemEquipment, string AndroidEarSensorClipFlag)
 {
     private DateTimeOffset? _date;
     /// <summary>

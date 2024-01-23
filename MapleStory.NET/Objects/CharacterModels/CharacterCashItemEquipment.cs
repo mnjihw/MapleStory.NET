@@ -12,7 +12,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="AdditionalCashItemEquipmentPreset_1"> 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드의 1번 프리셋 장착 캐시 장비 정보 리스트 </param>
 /// <param name="AdditionalCashItemEquipmentPreset_2"> 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드의 2번 프리셋 장착 캐시 장비 정보 리스트 </param>
 /// <param name="AdditionalCashItemEquipmentPreset_3"> 제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드의 3번 프리셋 장착 캐시 장비 정보 리스트 </param>
-public record CharacterCashItemEquipment(string CharacterGender, string CharacterClass, long? PresetNo, List<CashItemEquipmentPreset> CashItemEquipmentPreset_1, List<CashItemEquipmentPreset> CashItemEquipmentPreset_2, List<CashItemEquipmentPreset> CashItemEquipmentPreset_3, List<AdditionalCashItemEquipmentPreset> AdditionalCashItemEquipmentPreset_1, List<AdditionalCashItemEquipmentPreset> AdditionalCashItemEquipmentPreset_2, List<AdditionalCashItemEquipmentPreset> AdditionalCashItemEquipmentPreset_3)
+public record CharacterCashItemEquipment(string? CharacterGender, string? CharacterClass, long? PresetNo, List<CashItemEquipmentPreset>? CashItemEquipmentPreset_1, List<CashItemEquipmentPreset>? CashItemEquipmentPreset_2, List<CashItemEquipmentPreset>? CashItemEquipmentPreset_3, List<AdditionalCashItemEquipmentPreset>? AdditionalCashItemEquipmentPreset_1, List<AdditionalCashItemEquipmentPreset>? AdditionalCashItemEquipmentPreset_2, List<AdditionalCashItemEquipmentPreset>? AdditionalCashItemEquipmentPreset_3)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -30,7 +30,7 @@ public record CharacterCashItemEquipment(string CharacterGender, string Characte
 /// </summary>
 /// <param name="OptionType"> 옵션 타입 </param>
 /// <param name="OptionValue"> 옵션 값 </param>
-public record CashItemOption(string OptionType, string OptionValue);
+public record CashItemOption(string? OptionType, string? OptionValue);
 
 /// <summary>
 /// 캐시 장비 프리셋 정보
@@ -44,7 +44,7 @@ public record CashItemOption(string OptionType, string OptionValue);
 /// <param name="CashItemLabel"> 캐시 장비 라벨 정보 </param>
 /// <param name="CashItemColoringPrism"> 캐시 장비 컬러링프리즘 정보 </param>
 /// <param name="BasePresetItemDisableFlag"> 다른 프리셋에서 장비 추가 장착 없이 1번 프리셋의 장비 공유를 비활성화 했는지 여부 </param>
-public record CashItemEquipmentPreset(string CashItemEquipmentPart, string CashItemEquipmentSlot, string CashItemName, string CashItemIcon, string CashItemDescription, List<CashItemOption> CashItemOption, string CashItemLabel, CashItemColoringPrism CashItemColoringPrism, string BasePresetItemDisableFlag)
+public record CashItemEquipmentPreset(string? CashItemEquipmentPart, string? CashItemEquipmentSlot, string? CashItemName, string? CashItemIcon, string? CashItemDescription, List<CashItemOption>? CashItemOption, string? CashItemLabel, CashItemColoringPrism? CashItemColoringPrism, string? BasePresetItemDisableFlag)
 {
     private DateTimeOffset? _dateExpire;
     /// <summary>
@@ -78,7 +78,7 @@ public record CashItemEquipmentPreset(string CashItemEquipmentPart, string CashI
 /// <param name="CashItemLabel"> 캐시 장비 라벨 정보 </param>
 /// <param name="CashItemColoringPrism"> 캐시 장비 컬러링프리즘 정보 </param>
 /// <param name="BasePresetItemDisableFlag"> 다른 프리셋에서 장비 추가 장착 없이 1번 프리셋의 장비 공유를 비활성화했는지 여부 </param>
-public record AdditionalCashItemEquipmentPreset(string CashItemEquipmentPart, string CashItemEquipmentSlot, string CashItemName, string CashItemIcon, string CashItemDescription, List<CashItemOption> CashItemOption, string CashItemLabel, CashItemColoringPrism CashItemColoringPrism, string BasePresetItemDisableFlag)
+public record AdditionalCashItemEquipmentPreset(string? CashItemEquipmentPart, string? CashItemEquipmentSlot, string? CashItemName, string? CashItemIcon, string? CashItemDescription, List<CashItemOption>? CashItemOption, string? CashItemLabel, CashItemColoringPrism? CashItemColoringPrism, string? BasePresetItemDisableFlag)
 {
     private DateTimeOffset? _dateExpire;
     /// <summary>
@@ -107,4 +107,4 @@ public record AdditionalCashItemEquipmentPreset(string CashItemEquipmentPart, st
 /// <param name="Hue"> 컬러링프리즘 색조 </param>
 /// <param name="Saturation"> 컬러링프리즘 채도 </param>
 /// <param name="Value"> 컬러링프리즘 명도 </param>
-public record CashItemColoringPrism(string ColorRange, long? Hue, long? Saturation, long? Value);
+public record CashItemColoringPrism(string? ColorRange, long? Hue, long? Saturation, long? Value);

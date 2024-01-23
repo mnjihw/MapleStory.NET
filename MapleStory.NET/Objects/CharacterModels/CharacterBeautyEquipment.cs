@@ -11,7 +11,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="AdditionalCharacterHair"> 추가 캐릭터 헤어 정보 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 헤어 정보) </param>
 /// <param name="AdditionalCharacterFace"> 추가 캐릭터 성형 정보 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 성형 정보) </param>
 /// <param name="AdditionalCharacterSkinName"> 추가 피부 명 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 피부 명) </param>
-public record CharacterBeautyEquipment(string CharacterGender, string CharacterClass, CharacterHair CharacterHair, CharacterFace CharacterFace, string CharacterSkinName, AdditionalCharacterHair AdditionalCharacterHair, AdditionalCharacterFace AdditionalCharacterFace, string AdditionalCharacterSkinName)
+public record CharacterBeautyEquipment(string? CharacterGender, string? CharacterClass, CharacterHair? CharacterHair, CharacterFace? CharacterFace, string? CharacterSkinName, AdditionalCharacterHair? AdditionalCharacterHair, AdditionalCharacterFace? AdditionalCharacterFace, string? AdditionalCharacterSkinName)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -31,7 +31,7 @@ public record CharacterBeautyEquipment(string CharacterGender, string CharacterC
 /// <param name="BaseColor"> 성형 베이스 컬러 </param>
 /// <param name="MixColor"> 성형 믹스 컬러 </param>
 /// <param name="MixRate"> 성형 믹스 컬러의 염색 비율 </param>
-public record CharacterFace(string FaceName, string BaseColor, string MixColor, string MixRate);
+public record CharacterFace(string? FaceName, string? BaseColor, string? MixColor, string? MixRate);
 
 /// <summary>
 /// 캐릭터 헤어 정보
@@ -40,7 +40,7 @@ public record CharacterFace(string FaceName, string BaseColor, string MixColor, 
 /// <param name="BaseColor"> 헤어 베이스 컬러 </param>
 /// <param name="MixColor"> 헤어 믹스 컬러 </param>
 /// <param name="MixRate"> 헤어 믹스 컬러의 염색 비율 </param>
-public record CharacterHair(string HairName, string BaseColor, string MixColor, string MixRate);
+public record CharacterHair(string? HairName, string? BaseColor, string? MixColor, string? MixRate);
 
 /// <summary>
 /// 추가 캐릭터 성형 정보
@@ -49,7 +49,7 @@ public record CharacterHair(string HairName, string BaseColor, string MixColor, 
 /// <param name="BaseColor"> 성형 베이스 컬러 </param>
 /// <param name="MixColor"> 성형 믹스 컬러 </param>
 /// <param name="MixRate"> 성형 믹스 컬러의 염색 비율 </param>
-public record AdditionalCharacterFace(string FaceName, string BaseColor, string MixColor, string MixRate);
+public record AdditionalCharacterFace(string? FaceName, string? BaseColor, string? MixColor, string? MixRate);
 
 /// <summary>
 /// 추가 캐릭터 헤어 정보
@@ -58,4 +58,4 @@ public record AdditionalCharacterFace(string FaceName, string BaseColor, string 
 /// <param name="BaseColor"> 헤어 베이스 컬러 </param>
 /// <param name="MixColor"> 헤어 믹스 컬러 </param>
 /// <param name="MixRate"> 헤어 믹스 컬러의 염색 비율 </param>
-public record AdditionalCharacterHair(string HairName, string BaseColor, string MixColor, string MixRate);
+public record AdditionalCharacterHair(string? HairName, string? BaseColor, string? MixColor, string? MixRate);

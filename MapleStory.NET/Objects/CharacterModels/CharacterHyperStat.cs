@@ -12,7 +12,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="HyperStatPreset_2RemainPoint"> 프리셋 2번 하이퍼 스탯 잔여 포인트 </param>
 /// <param name="HyperStatPreset_3"> 프리셋 3번 하이퍼 스탯 정보 리스트 </param>
 /// <param name="HyperStatPreset_3RemainPoint"> 프리셋 3번 하이퍼 스탯 잔여 포인트 </param>
-public record CharacterHyperStat(string CharacterClass, string UsePresetNo, long? UseAvailableHyperStat, List<HyperStatPreset> HyperStatPreset_1, long? HyperStatPreset_1RemainPoint, List<HyperStatPreset> HyperStatPreset_2, long? HyperStatPreset_2RemainPoint, List<HyperStatPreset> HyperStatPreset_3, long? HyperStatPreset_3RemainPoint)
+public record CharacterHyperStat(string? CharacterClass, string? UsePresetNo, long? UseAvailableHyperStat, List<HyperStatPreset>? HyperStatPreset_1, long? HyperStatPreset_1RemainPoint, List<HyperStatPreset>? HyperStatPreset_2, long? HyperStatPreset_2RemainPoint, List<HyperStatPreset>? HyperStatPreset_3, long? HyperStatPreset_3RemainPoint)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -32,4 +32,4 @@ public record CharacterHyperStat(string CharacterClass, string UsePresetNo, long
 /// <param name="StatPoint"> 스탯 투자 포인트 </param>
 /// <param name="StatLevel"> 스탯 레벨 </param>
 /// <param name="StatIncrease"> 스탯 상승량 </param>
-public record HyperStatPreset(string StatType, long? StatPoint, long? StatLevel, string StatIncrease);
+public record HyperStatPreset(string? StatType, long? StatPoint, long? StatLevel, string? StatIncrease);

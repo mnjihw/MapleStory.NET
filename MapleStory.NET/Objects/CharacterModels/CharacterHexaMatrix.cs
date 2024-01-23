@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// 캐릭터 HEXA 코어 정보
 /// </summary>
 /// <param name="CharacterHexaCoreEquipment"> 캐릭터 HEXA 코어 정보 리스트 </param>
-public record CharacterHexaMatrix(List<CharacterHexaCoreEquipment> CharacterHexaCoreEquipment)
+public record CharacterHexaMatrix(List<CharacterHexaCoreEquipment>? CharacterHexaCoreEquipment)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -24,10 +24,10 @@ public record CharacterHexaMatrix(List<CharacterHexaCoreEquipment> CharacterHexa
 /// <param name="HexaCoreLevel"> 코어 레벨 </param>
 /// <param name="HexaCoreType"> 코어 타입 </param>
 /// <param name="LinkedSkill"> 연결된 스킬 리스트 </param>
-public record CharacterHexaCoreEquipment(string HexaCoreName, long? HexaCoreLevel, string HexaCoreType, List<LinkedSkill> LinkedSkill);
+public record CharacterHexaCoreEquipment(string? HexaCoreName, long? HexaCoreLevel, string? HexaCoreType, List<LinkedSkill>? LinkedSkill);
 
 /// <summary>
 /// 연결된 스킬
 /// </summary>
 /// <param name="HexaSkillId"> HEXA 스킬 명 </param>
-public record LinkedSkill(string HexaSkillId);
+public record LinkedSkill(string? HexaSkillId);

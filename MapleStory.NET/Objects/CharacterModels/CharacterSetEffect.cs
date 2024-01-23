@@ -4,7 +4,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// 캐릭터 세트 효과 정보
 /// </summary>
 /// <param name="SetEffect"> 세트 효과 정보 리스트 </param>
-public record CharacterSetEffect(List<SetEffect> SetEffect)
+public record CharacterSetEffect(List<SetEffect>? SetEffect)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -22,7 +22,7 @@ public record CharacterSetEffect(List<SetEffect> SetEffect)
 /// </summary>
 /// <param name="SetCount"> 세트 효과 레벨 (장비 수) </param>
 /// <param name="SetOption"> 적용 중인 세트 효과  </param>
-public record SetEffectInfo(long? SetCount, string SetOption);
+public record SetEffectInfo(long? SetCount, string? SetOption);
 
 /// <summary>
 /// 세트 효과 정보
@@ -30,4 +30,4 @@ public record SetEffectInfo(long? SetCount, string SetOption);
 /// <param name="SetName"> 세트 효과 명 </param>
 /// <param name="TotalSetCount"> 세트 효과 개수 (럭키 아이템 포함)) </param>
 /// <param name="SetEffectInfo"> 세트 효과 정보 리스트 </param>
-public record SetEffect(string SetName, long? TotalSetCount, List<SetEffectInfo> SetEffectInfo);
+public record SetEffect(string? SetName, long? TotalSetCount, List<SetEffectInfo>? SetEffectInfo);

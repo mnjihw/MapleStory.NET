@@ -6,7 +6,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="CharacterLinkSkillDetails"> 링크 스킬 정보 리스트 </param>
 /// <param name="CharacterOwnedLinkSkill"> 내 링크 스킬 정보 </param>
-public record CharacterLinkSkill(string CharacterClass, [property: JsonPropertyName("character_link_skill")] List<CharacterLinkSkillDetails> CharacterLinkSkillDetails, CharacterOwnedLinkSkill CharacterOwnedLinkSkill)
+public record CharacterLinkSkill(string? CharacterClass, [property: JsonPropertyName("character_link_skill")] List<CharacterLinkSkillDetails>? CharacterLinkSkillDetails, CharacterOwnedLinkSkill? CharacterOwnedLinkSkill)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -27,7 +27,7 @@ public record CharacterLinkSkill(string CharacterClass, [property: JsonPropertyN
 /// <param name="SkillLevel"> 스킬 레벨 </param>
 /// <param name="SkillEffect"> 스킬 효과 </param>
 /// <param name="SkillIcon"> 스킬 아이콘 URL </param>
-public record CharacterLinkSkillDetails(string SkillName, string SkillDescription, long? SkillLevel, string SkillEffect, string SkillIcon);
+public record CharacterLinkSkillDetails(string? SkillName, string? SkillDescription, long? SkillLevel, string? SkillEffect, string? SkillIcon);
 
 /// <summary>
 /// 내 링크 스킬 정보
@@ -37,4 +37,4 @@ public record CharacterLinkSkillDetails(string SkillName, string SkillDescriptio
 /// <param name="SkillLevel"> 스킬 레벨 </param>
 /// <param name="SkillEffect"> 스킬 효과 </param>
 /// <param name="SkillIcon"> 스킬 아이콘 URL </param>
-public record CharacterOwnedLinkSkill(string SkillName, string SkillDescription, long? SkillLevel, string SkillEffect, string SkillIcon);
+public record CharacterOwnedLinkSkill(string? SkillName, string? SkillDescription, long? SkillLevel, string? SkillEffect, string? SkillIcon);

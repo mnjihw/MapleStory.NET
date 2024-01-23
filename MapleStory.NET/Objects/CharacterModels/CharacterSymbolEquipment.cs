@@ -5,7 +5,7 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// </summary>
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="Symbol"> 심볼 정보 리스트 </param>
-public record CharacterSymbolEquipment(string CharacterClass, List<Symbol> Symbol)
+public record CharacterSymbolEquipment(string? CharacterClass, List<Symbol>? Symbol)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -33,4 +33,4 @@ public record CharacterSymbolEquipment(string CharacterClass, List<Symbol> Symbo
 /// <param name="SymbolHp"> 심볼로 증가한 체력 </param>
 /// <param name="SymbolGrowthCount"> 현재 보유 성장치 </param>
 /// <param name="SymbolRequireGrowthCount"> 성장 시 필요한 성장치 </param>
-public record Symbol(string SymbolName, string SymbolIcon, string SymbolDescription, string SymbolForce, long? SymbolLevel, string SymbolStr, string SymbolDex, string SymbolInt, string SymbolLuk, string SymbolHp, long? SymbolGrowthCount, long? SymbolRequireGrowthCount);
+public record Symbol(string? SymbolName, string? SymbolIcon, string? SymbolDescription, string? SymbolForce, long? SymbolLevel, string? SymbolStr, string? SymbolDex, string? SymbolInt, string? SymbolLuk, string? SymbolHp, long? SymbolGrowthCount, long? SymbolRequireGrowthCount);
