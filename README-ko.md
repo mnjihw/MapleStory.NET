@@ -22,34 +22,52 @@ dotnet add package MapleStory.NET
 ### 예제 코드
 
 ```csharp
+using System;
+using System.Linq;
+using System.Net.Http;
 using MapleStory.NET;
 
 var apiKey = "Your_api_key_here";
-
 using var httpClient = new HttpClient();
+
 var client = new MapleStoryClient(httpClient, apiKey);
+
 var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //종합 랭킹 정보 조회
 
-if (!overallRankingResult.Success)
+if (overallRankingResult.Data is null)
 {
     Console.WriteLine(overallRankingResult.Error);
     return;
 }
 
-var top10 = overallRankingResult.Data!.Ranking!.Take(10); //랭킹 10위까지 가져오기
-var firstPlace = top10.First(); //랭킹 1위 가져오기
-var characterResult = await client.CharacterApi.GetAsync(firstPlace.CharacterName!); //캐릭터 식별자(ocid) 조회
+var top10 = overallRankingResult.Data.Ranking?.Take(10); //랭킹 10위까지 가져오기
+var firstPlace = top10.FirstOrDefault(); //랭킹 1위 가져오기
 
-if (!characterResult.Success)
+if (firstPlace?.CharacterName is null)
+{
+    Console.WriteLine("랭킹 1위 조회 실패");
+    return;
+}
+
+var characterResult = await client.CharacterApi.GetAsync(firstPlace.CharacterName); //캐릭터 식별자(ocid) 조회
+
+if (characterResult.Data is null)
 {
     Console.WriteLine(characterResult.Error);
     return;
 }
 
-var ocid = characterResult.Data!.Ocid!;
+var ocid = characterResult.Data.Ocid;
+
+if (ocid is null)
+{
+    Console.WriteLine("ocid 조회 실패");
+    return;
+}
+
 var characterBasicResult = await client.CharacterApi.GetBasicAsync(ocid); //기본 정보 조회
 
-if (!characterBasicResult.Success)
+if (characterBasicResult.Data is null)
 {
     Console.WriteLine(characterBasicResult.Error);
     return;
