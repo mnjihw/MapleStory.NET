@@ -41,7 +41,7 @@ if (overallRankingResult.Data is null)
 }
 
 var top10 = overallRankingResult.Data.Ranking?.Take(10); //랭킹 10위까지 가져오기
-var firstPlace = top10.FirstOrDefault(); //랭킹 1위 가져오기
+var firstPlace = top10?.FirstOrDefault(); //랭킹 1위 가져오기
 
 if (firstPlace?.CharacterName is null)
 {

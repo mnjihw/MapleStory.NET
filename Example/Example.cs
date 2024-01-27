@@ -17,7 +17,7 @@ if (overallRankingResult.Data is null)
 }
 
 var top10 = overallRankingResult.Data.Ranking?.Take(10); //get top 10 characters
-var firstPlace = top10.FirstOrDefault(); //get first place
+var firstPlace = top10?.FirstOrDefault(); //get first place
 
 if (firstPlace?.CharacterName is null)
 {
