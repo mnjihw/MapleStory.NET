@@ -5,8 +5,6 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MapleStory.NET", "MapleStory.NET\MapleStory.NET.csproj", "{5E4B2E7B-E004-49B0-8598-641FCB2E4828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapleStory.NET.Tests", "MapleStory.NET.Tests\MapleStory.NET.Tests.csproj", "{02BF73F7-E05C-494A-827E-2E7214D56E0A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{AB927138-7B24-4ECB-B583-A608CA88CFBD}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{5E4B2E7B-E004-49B0-8598-641FCB2E4828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E4B2E7B-E004-49B0-8598-641FCB2E4828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E4B2E7B-E004-49B0-8598-641FCB2E4828}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02BF73F7-E05C-494A-827E-2E7214D56E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02BF73F7-E05C-494A-827E-2E7214D56E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02BF73F7-E05C-494A-827E-2E7214D56E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02BF73F7-E05C-494A-827E-2E7214D56E0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AB927138-7B24-4ECB-B583-A608CA88CFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AB927138-7B24-4ECB-B583-A608CA88CFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB927138-7B24-4ECB-B583-A608CA88CFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
