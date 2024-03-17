@@ -14,7 +14,7 @@ public record CubeHistory(int? Count, string? NextCursor, [property: JsonPropert
 /// <param name="Id"> 큐브 히스토리 식별자 </param>
 /// <param name="CharacterName"> 캐릭터 명 </param>
 /// <param name="CubeType"> 사용 큐브 </param>
-/// <param name="ItemUpgradeResult"> 사영 결과 </param>
+/// <param name="ItemUpgradeResult"> 사용 결과 </param>
 /// <param name="MiracleTimeFlag"> 미라클 타임 적용 여부 </param>
 /// <param name="ItemEquipmentPart"> 장비 분류 </param>
 /// <param name="ItemLevel"> 장비 레벨 </param>
@@ -39,10 +39,3 @@ public record CubeHistoryDetails(string? Id, string? CharacterName, string? Cube
         set => _dateCreate = value;
     }
 }
-
-/// <summary>
-/// 잠재능력 옵션
-/// </summary>
-/// <param name="Value"> 옵션 명 </param>
-/// <param name="Grade"> 옵션 등급 </param>
-public record PotentialOption(string? Value, string? Grade);
