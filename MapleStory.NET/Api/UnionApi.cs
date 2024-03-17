@@ -5,6 +5,7 @@ public class UnionApi : BaseApi, IUnionApi
     private const string ResourcePath = "/maplestory/v1/user";
     private const string UnionEndpoint = "union";
     private const string UnionRaiderEndpoint = "union-raider";
+    private const string UnionArtifactEndpoint = "union-artifact";
     private static DateOnly ApiLaunchDate => new(2023, 12, 21);
     private static TimeSpan ApiUpdateTime => new(1, 0, 0);
     private static DateOnly LatestAvailableDate => Helper.GetLatestApiAvailableDate(ApiUpdateTime, 1, DateTimeOffset.UtcNow);
@@ -18,6 +19,11 @@ public class UnionApi : BaseApi, IUnionApi
     public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, CancellationToken cancellationToken = default) => GetRaiderAsync(ocid, LatestAvailableDate, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<UnionRaider>> GetRaiderAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<UnionRaider>(UnionRaiderEndpoint, ocid, date, cancellationToken);
+    /// <inheritdoc />
+    public Task<CallResult<UnionArtifact>> GetArtifactAsync(string ocid, CancellationToken cancellationToken = default) => GetArtifactAsync(ocid, LatestAvailableDate, cancellationToken);
+    /// <inheritdoc />
+    public Task<CallResult<UnionArtifact>> GetArtifactAsync(string ocid, DateOnly date, CancellationToken cancellationToken = default) => GetAsync<UnionArtifact>(UnionArtifactEndpoint, ocid, date, cancellationToken);
+
     private Task<CallResult<T>> GetAsync<T>(string endpoint, string ocid, DateOnly date, CancellationToken cancellationToken) where T : class
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(endpoint);

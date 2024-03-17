@@ -46,6 +46,38 @@ public interface IHistoryApi
     /// <returns>A call result containing StarforceHistory object on success or error on failure.</returns>
     Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default);
     /// <summary>
+    /// Endpoint: GET /maplestory/v1/history/potential
+    /// <para>Gets reset potentials of the user based on API key.</para>
+    /// <para><b>NOTE: Data available only from January 25, 2024 onwards.</b></para>
+    /// <para>Updates daily at 4 AM KST with the previous day's data. If before 4 AM KST, returns data from two days prior.</para>
+    /// </summary>
+    /// <param name="count">The number of results to be fetched. (10 &lt;= count &lt;= 1000)</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
+    /// <returns>A call result containing PotentialHistory object on success or error on failure.</returns>
+    Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, CancellationToken cancellationToken = default);
+    /// <summary>
+    /// Endpoint: GET /maplestory/v1/history/potential
+    /// <para>Gets reset potentials of the user based on API key.</para>
+    /// <para><b>NOTE: Data available only from January 25, 2024 onwards.</b></para>
+    /// <para>Data is updated daily at 4 AM KST with the previous day's data. If a request is made before 4 AM KST, data from two days prior is returned.</para>
+    /// </summary>
+    /// <param name="count">The number of results to be fetched. (10 &lt;= count &lt;= 1000)</param>
+    /// <param name="date">Reference date (KST). If not specified, the most recent data is returned.</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
+    /// <returns>A call result containing PotentialHistory object on success or error on failure.</returns>
+    Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, DateOnly date, CancellationToken cancellationToken = default);
+    /// <summary>
+    /// Endpoint: GET /maplestory/v1/history/potential
+    /// <para>Gets reset potentials of the user based on API key.</para>
+    /// <para><b>NOTE: Data available only from January 25, 2024 onwards.</b></para>
+    /// <para>Data is updated daily at 4 AM KST with the previous day's data. If a request is made before 4 AM KST, data from two days prior is returned.</para>
+    /// </summary>
+    /// <param name="count">The number of results to be fetched. (10 &lt;= count &lt;= 1000)</param>
+    /// <param name="cursor">Cursor for paging.</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the operation if needed.</param>
+    /// <returns>A call result containing PotentialHistory object on success or error on failure.</returns>
+    Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default);
+    /// <summary>
     /// Endpoint: GET /maplestory/v1/history/cube
     /// <para>Gets Cube usage results of the user based on API key.</para>
     /// <para><b>NOTE: Data available only from November 25, 2022 onwards.</b></para>
