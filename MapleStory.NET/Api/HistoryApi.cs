@@ -4,10 +4,14 @@ public class HistoryApi : BaseApi, IHistoryApi
 {
     private const string ResourcePath = "/maplestory/v1/history";
     private const string StarforceEndpoint = "starforce";
+    private const string PotentialEndpoint = "potential";
     private const string CubeEndpoint = "cube";
+
     private static TimeSpan StarforceHistoryApiUpdateTime => new(0, 0, 0);
-    private static TimeSpan CubeHistoryApiUpdateTime => new(1, 0, 0);
+    private static TimeSpan PotentialHistoryApiUpdateTime => new(4, 0, 0);
+    private static TimeSpan CubeHistoryApiUpdateTime => new(4, 0, 0);
     private static DateOnly StarforceApiLaunchDate => new(2023, 12, 27);
+    private static DateOnly PotentialApiLaunchDate => new(2024, 1, 25);
     private static DateOnly CubeApiLaunchDate => new(2022, 11, 25);
 
     internal HistoryApi(ILogger logger, HttpClient httpClient) : base(logger, httpClient) { }
@@ -29,6 +33,13 @@ public class HistoryApi : BaseApi, IHistoryApi
     /// <inheritdoc />
     public Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default) => GetStarforceHistoryAsync(count, null, cursor, cancellationToken);
     private Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, DateOnly? date, string? cursor, CancellationToken cancellationToken = default) => GetAsync<StarforceHistory>(StarforceEndpoint, count, date, cursor, StarforceApiLaunchDate, cancellationToken);
+    /// <inheritdoc />
+    public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, GetLatestAvailableDate(PotentialEndpoint), null, cancellationToken);
+    /// <inheritdoc />
+    public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, DateOnly date, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, date, null, cancellationToken);
+    /// <inheritdoc />
+    public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, null, cursor, cancellationToken);
+    private Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, DateOnly? date, string? cursor, CancellationToken cancellationToken = default) => GetAsync<PotentialHistory>(PotentialEndpoint, count, date, cursor, PotentialApiLaunchDate, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<CubeHistory>> GetCubeHistoryAsync(int count, CancellationToken cancellationToken = default) => GetCubeHistoryAsync(count, GetLatestAvailableDate(CubeEndpoint), null, cancellationToken);
     /// <inheritdoc />
@@ -60,6 +71,8 @@ public class HistoryApi : BaseApi, IHistoryApi
     {
         if (endpoint == StarforceEndpoint)
             return Helper.GetLatestApiAvailableDate(StarforceHistoryApiUpdateTime, 0, DateTimeOffset.UtcNow);
+        else if (endpoint == PotentialEndpoint)
+            return Helper.GetLatestApiAvailableDate(PotentialHistoryApiUpdateTime, 1, DateTimeOffset.UtcNow);
         else if (endpoint == CubeEndpoint)
             return Helper.GetLatestApiAvailableDate(CubeHistoryApiUpdateTime, 1, DateTimeOffset.UtcNow);
         else
