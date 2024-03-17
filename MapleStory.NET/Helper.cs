@@ -22,6 +22,8 @@ public static class Helper
         [ApiErrorCode.OPENAPI00006] = "Invalid game or API path",
         [ApiErrorCode.OPENAPI00007] = "API rate limit exceeded",
         [ApiErrorCode.OPENAPI01007] = "API rate limit exceeded",
+        [ApiErrorCode.OPENAPI00009] = "Preparing data",
+        [ApiErrorCode.OPENAPI00010] = "Service under maintenance",
         [ApiErrorCode.Unknown] = "Unknown error",
     };
     private const int KoreaStandardTimeOffset = 9;
