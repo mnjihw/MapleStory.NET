@@ -41,6 +41,14 @@ public enum ApiErrorCode
     /// </summary>
     OPENAPI01007,
     /// <summary>
+    /// 400 Bad Request
+    /// </summary>
+    OPENAPI00009,
+    /// <summary>
+    /// 400 Bad Request
+    /// </summary>
+    OPENAPI00010,
+    /// <summary>
     /// Unknown
     /// </summary>
     Unknown,
